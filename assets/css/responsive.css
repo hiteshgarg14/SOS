@@ -1,0 +1,735 @@
+/* To make Responsive
+---------------------------------------------------------------------- /
+#  1 - media screen and (max-width: 1200px)
+#  2 - media screen and (max-width: 1024px)
+#  2 - media screen and (max-width: 992px)
+#  3 - media screen and (max-width: 768px)
+#  4 - media screen and (max-width: 480px)
+
+#
+---------------------------------------------------------------------- */
+
+
+
+@media screen and (min-width: 1200px) {
+  
+}
+@media screen and (max-width: 1200px) {
+	.event-time {
+        width: 95px;    
+        padding: 20px 10px;
+    }
+    .event-detail {
+        width: 198px;
+    }
+    .event-date {
+        font-size: 18px;    	
+    }
+    .news .news-time {
+        width: 95px;    
+        padding: 20px 10px;
+    }
+    
+    .news .news-detail span {
+    	font-size: 9px;
+    }
+	.flex_text li h2 {
+	    font-size: 38px;
+	}
+	.event-timing {
+	    margin-top: 38px;	
+	}
+	.countdown1 div {
+		margin: 15px 5px 0;		
+		font-size: 14px;		
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	
+  .support, .blog-bg, .event, .success-story, .video, footer {
+	  background-attachment: scroll !important;
+	  background-size: cover !important;
+	  -webkit-background-size: cover !important;
+  }
+  .event-timing {
+	  padding:0;
+  }
+  .aboutus-block:hover .caption-btn {
+    bottom: 15%;
+  }
+  .news-head span {
+    font-size: 12px;
+  }
+  .member-hover p {
+      margin-top: 70px;
+      color: #fff;
+      line-height: 22px;
+  }
+  .gallery-hover {
+      padding: 20px 30px 16px 15px;
+  }
+  .photo li {
+	  margin-left: 8px;
+  }
+  .head {
+	  top: 3px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+	.navbar-nav > li > a {
+    	padding: 12px 10px 12px;
+	    font-size: 9px;
+	    text-transform: uppercase;
+    }
+  .search-btn {
+	   font-size: 12px;
+	   padding: 5px;
+	   margin-top: 12px;
+   }
+   .banner h2 {
+      font-size: 24px;
+   }
+   .banner p {
+	    line-height: 20px;	
+        line-height: 20px;
+        font-size: 16px;
+        margin-top: 0;
+	}
+   .donate-title {
+    font-size: 18px;
+   }
+   .donate-btn-block a {
+	    display: block;
+	    margin-top: 5px;
+	    margin-bottom: 5px;
+	}
+	.banner .donate-btn-block a {
+		display: inline-block;
+		font-size: 12px;
+        padding: 10px;
+	}
+	.banner .donate-btn-block {
+		margin-top:0;
+	}
+	.aboutus-block {
+    padding: 15px 10px;
+		
+	}
+    .aboutus-block p {
+        line-height: 20px;
+    }
+	.aboutus-block h4 {
+      font-size: 18px;
+		
+	}
+    .recent-cause h3 {
+        font-size: 18px;
+    }
+	.cause-caption {	
+		font-size: 10px;
+    }
+	.event-time {
+        width: 95px;    
+        padding: 20px 10px;
+    }
+    .event-detail {
+        width: 145px;
+    }
+
+	.flex_text li h2 {
+	    font-size: 24px;
+	}
+    .event-timing {
+        margin-top: 32px; 
+		padding: 0px 0px 10px 0px;
+    }
+    .event-hover span {
+        font-size: 14px;
+    }
+    .event-hover h4 {
+        font-size: 10px;    	
+    }
+    .event-detail h6 {
+	    font-size: 10px;    	
+	    padding: 10px;
+    }
+    .event-place {
+        font-size: 10px;
+    }
+    .event-time, .news-time {
+        padding: 10px;    
+        width: 75px;
+    }
+    .event-month, .news-month {
+        font-size: 8px;
+    }
+    .event-date, .news-date {
+        font-size: 18px;    	
+    }
+    .gallery .btn-trans {
+        padding: 12px;    
+        font-size: 12px;
+    }
+    .member-block img {
+    	width: 100%;
+    }
+    .members .col-md-3:first-child .member-block,
+    .members .col-md-3:nth-child(2) .member-block {
+    	margin-bottom: 20px;
+    }
+    .count-icon {
+        font-size: 45px;
+    }
+    .count {
+       font-size: 50px;
+    }
+    .testimonial-body {
+       padding: 12px;
+    }
+    blockquote {
+    	font-size: 12px;
+    	line-height: 24px;
+    }
+    .quote-right {
+    	right: 0;
+    }
+    .partner .head-pro {
+       margin-top: 22px;    	
+    }
+    .news .event-detail span {
+    	font-size: 10px;    
+    	padding: 8px;
+    }
+    .event-body {
+    	min-height: auto;
+    }
+    .news .col-md-4:first-child .news-block,
+    .news .col-md-4:nth-child(2) .news-block {
+    	margin-bottom: 20px;
+    }
+    .or-block {
+        display: none;
+    }
+    footer .input-group-addon {
+    	padding: 10px;    
+    	font-size: 12px;
+    }
+    footer ul li {
+        font-size: 10px;    	
+    }
+    footer .photo li {
+        margin-left: 0;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+	.navbar-nav > li {
+		padding-left: 5px;
+        padding-right: 5px;
+	}
+	.navbar-nav > li > a {
+		padding: 12px 5px 12px;
+	}
+	.header-top .navbar-nav > li > a {
+		font-size:10px;
+	}
+	.logo h1 {
+		font-size:20px;
+	}
+	.header-top .addbg .logo a {
+	  padding-top: 25px;
+	  padding-bottom:25px;
+	}
+    .recent-cause .promo .default-btn {
+      font-size: 10px;
+      padding: 10px;
+    }
+	.countdown div {
+	  font-size: 40px;
+	}
+	.event-timing {
+	  margin-top: 22px;
+	}
+	.countdown1 div {
+		margin: 15px 2px 0; 
+		
+		font-size: 14px;
+		
+	}
+	
+}
+
+
+@media screen and (min-width: 992px) {  
+   
+   .event-detail h6 {
+       font-size: 12px;
+   }
+   .event-link {
+       margin-top: 72px;   	    
+   }
+}
+@media screen and (min-width: 768px) {
+   .header-top .navbar-nav {
+   	    float: right;
+   } 
+}
+
+@media screen and (max-width: 768px) {
+    .header-top {
+		background: #f24b6a;
+	}
+	.header-top .navigation-bar ul li:last-child {
+		display: block;
+	}
+    .header-top .logo a {
+        padding-top: 18px;
+    }
+	.single-cause-block,
+	.event-block,
+	.news-block,
+	.member-block {
+		float: none;
+		width: 290px;
+		margin: 0 auto 15px;
+	}
+	.news-block .news-category {
+		width: auto;
+	}
+	footer ul.photo {
+		width: 290px;
+		margin: 0 auto;
+    }
+	.social-block {
+		margin-bottom: 20px; 
+    }
+    .color-overlay {
+    	text-align: center;
+    }
+    .support .text-right,
+    .event .text-right {
+    	text-align: center;
+    }
+    .timing {
+    	margin-top: 20px;
+    }
+    .heading {
+    	text-align: center;
+    }
+    .heading h3 {
+    	text-align: center;    
+    	font-size: 24px;
+    }
+    .head {
+    	padding-left: 10px;
+    	top: 3px;
+    }
+    .head-pro {
+    	text-align: center;    
+    	font-size: 24px;
+    }
+    .partner p {
+    	text-align: center;
+    }
+    .partner .col-sm-3 {
+    	min-height: inherit;    
+    	margin-bottom: 50px;
+    }
+    .partner-logo {
+    	padding-left: 2%;
+    	padding-right: 2%;
+    	margin-bottom: 50px;
+        min-height: 100px;    
+    	float: none;
+    	width: auto;
+    }
+    .tab-pane {
+    	position: inherit;
+    }
+    .contact-block {
+    	position: inherit;
+    	top: inherit;
+    }
+    .event-time {
+        width: 100%;    
+        float: none;
+    }
+    .event-detail {
+        width: 100%;    
+        float: none;
+    }
+	.event-detail h6 {
+		padding:0;
+	}
+	.events .btn-trans {
+		margin-top: 15px;
+	}
+	.news .news-time,
+    .news .news-detail {
+    	float: none;
+    	width: 100%;
+    }
+	
+    .testimonial-detail img {
+        width: 100%;
+    }
+    .testimonial .nav > li {
+    	text-align: center;
+    }
+    .navbar-default .navbar-toggle .icon-bar {
+    	background-color: #fff;    
+    	height: 5px;
+    	width: 45px;
+    }
+    .navbar-toggle {
+        margin-top: 15px;
+        z-index: 1;
+    }
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    	background-color: #f24b6a;
+    }
+    .navbar-default .navbar-toggle {
+    	border: none;
+    }
+    .gallery .text-right, .gallery h3 {
+    	text-align: center;    
+    }
+    .gallery h3 {
+    	margin-bottom: 40px;
+    }
+    .flex_text li h2 {
+        font-size: 30px;
+    }
+    .navbar-nav {
+    	margin: 0;
+    }
+    .header-top .navbar-nav > li > a {
+    	padding-top: 25px;
+    	padding-bottom: 5px;  
+    }
+    .header-top .nav > li > a:hover, 
+    .header-top .nav > li > a:focus, 
+    .header-top .nav > li.current > a {
+        color: #ccc;
+    }
+    .m-logo {
+    	text-align: center;
+    }
+    .info-holder {
+    	margin-bottom: 50px;
+    }
+    .content-block-left, .content-block-right {
+    	position: inherit;
+    	width: auto;
+    	-webkit-transform: translateY(0%);
+            -ms-transform: translateY(0%);
+                transform: translateY(0%); 
+    
+}
+.content-block-left {
+    margin-bottom: 40px;
+}
+.success-story .color-overlay, .event .color-overlay {
+	padding: 100px 0;
+}
+    .sidebar-single-post {
+        width: 300px;
+        margin: 0 auto 65px;
+    }
+    .partner-logo img {
+    	margin: 0 auto;
+    
+}
+    .testimonial .nav-tabs {
+    	text-align: center;
+    	margin-left: 0;
+    	margin-right: 0;
+    }
+    .testimonial .nav > li.col-xs-6 {
+    	float: none;
+    	display: inline-block;
+    	width: auto;
+    	padding: 0;
+    	margin-left: 5px;
+    	margin-right: 5px;
+    }
+    .testimonial .nav > li > a {
+    	float: none;
+    	width: 100px;
+    	height: 100px;
+    }
+    .testimonial .nav > li > a img {
+    	width: 100%;
+    	height: 100%;
+    }
+    .single-blog-meta ul li {
+    	padding: 10px;
+        font-size: 10px;
+    }
+    .reply-block {
+    	margin-bottom: 50px;
+    }
+    .contact-info ul li {
+    	display: block;
+    	margin-bottom: 10px
+    }
+    .social-icon {
+    	float: left;
+    }
+    .count-block .pull-right {
+    	float: none !important;
+    }
+    .copyright .col-sm-6 {
+    	text-align: center;
+    }
+    .contact, 
+    .video .color-overlay, 
+    .news, .testimonial, 
+    .success-story .color-overlay, 
+    .event .color-overlay, 
+    .members, 
+    .events, 
+    .cause,
+    .support .color-overlay,
+    section.aboutus {
+    	padding: 50px 0;
+    }
+    .gallery, footer {
+    	padding-top: 50px;
+    }
+    .flex-control-nav {
+	    text-align: center;
+	    width: 100%;
+	    height: 42px;
+	    padding: 12px 0px;
+        background: #F24B6A;
+	}
+	.flex-control-nav li {
+		display: inline-block;
+		margin: 0 10px;
+	}
+	.donate-block {
+		padding-top: 65px
+	}
+	.gallery .btn-trans {
+		margin-bottom: 10px;
+	}
+	.content-block-left {
+		margin-bottom: 20px;
+	}
+	.time_circles > div > span {
+		margin-top: 0px;
+	}
+	.header-top .logo:before {
+		width: 100%;
+	}
+    .news-reporter, .reporter-date {
+        display: block;
+    }
+    .news-reporter {
+        margin-bottom: 5px;
+    }
+    
+    .banner .recent-cause {
+        position: inherit;
+        height: auto;
+    }
+	.banner.video-bg .recent-cause {
+		height: 165px;
+	}
+    .banner .container {
+        top: 30%;
+        webkit-transform: translateY(0%);
+           -ms-transform: translateY(0%);
+               transform: translateY(0%); 
+    }  
+    .banner .recent-cause .container {
+        top: 0;
+        webkit-transform: translateY(0%);
+           -ms-transform: translateY(0%);
+               transform: translateY(0%);
+    }
+    .member-hover p {
+      margin-top: 100px;
+      color: #fff;
+    }
+    .kenburnsy {
+        height: 400px!important;
+    }
+	.countdown span {
+		font-size: 12px;
+	}
+	.countdown div {
+		font-size:20px;
+	}
+	 .most-recent, .recent-cause h3 {
+        text-align: center;
+    }
+    .recent-cause .promo {
+        text-align: center;
+    }
+    .contact_form {
+        position: inherit;
+        top:auto;
+        left:auto;
+        right:auto;
+        bottom:auto;
+    }
+    .photo li {
+        width:37.3%;
+    }
+    .contact-form {
+        background: #fff;
+        position: relative;
+    }
+}
+@media screen and (max-width: 620px) {
+    
+    .promo .default-btn {
+    	margin-bottom: 20px;
+    }
+    .countdown span {
+		font-size: 12px;
+		margin: 0 10px;
+	}
+	.countdown div {
+		margin-bottom:20px;
+		font-size:28px;
+	}
+	.countdown1 div {
+		margin: 15px 5px 0; 
+		font-size: 18px;
+	}
+	.countdown1 > div > span {
+		font-size:14px;
+		margin-top: 20px;
+	}
+    .banner h2 {
+    	font-size: 18px;
+    }
+    .banner p {
+    	line-height: 14px;
+    	font-size: 12px;    
+    	margin: 0;
+    }
+    .count {
+        font-size: 34px;
+    }
+    .gallery-hover p {
+        margin-bottom: 20px;
+    }
+    section.slider {
+    	margin-top:0px;
+    }
+}
+@media screen and (max-width: 480px) {
+	.donate-btn-block a {
+       padding: 15px 10px;		
+	}
+	.donate-block {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+	.flex_text li {
+       font-size: 20px;		
+	}
+	.time_circles > div > span,
+	.event .timing h4 {
+       float: none;		
+	}
+	.time_circles > div > span {
+	   font-size: 34px!important; 
+	   line-height: 40px!important;
+    }
+	.event .timing h4 {
+       line-height: 34px!important;       
+	}
+	.count-caption {
+		font-size:14px;
+	}
+	.gallery-hover {
+		padding: 20px;
+	}
+	.gallery-hover h5 {
+		font-size: 12px;	
+		margin-bottom: 20px;
+    }
+	.gallery-hover h5+p {
+		display: none;
+    }
+    .content-block-left {
+        margin: 0 0 20px;
+    }
+    .comment-block .media-list, 
+    .comment-block ul.media-list + ul {
+    	padding-left: 0;
+    }
+    .comment-block {
+    	padding-left: 20px;
+    	padding-right: 20px;
+    }
+    .media-body p {
+    	line-height: normal;
+    }
+    
+    .single-post-thumnail li {
+    	padding-left: 5px;
+    	padding-right: 5px;
+    }
+    .single-post-thumnail li img {
+    	border: 0;
+    	padding: 0;
+    }
+    .map {
+    	height: 250px;
+    }
+    .banner img {
+    	height: 140px;
+    }
+	.flex_text li h2 {
+		font-size: 14px;	
+	}
+    .banner {
+        margin-top: 70px;
+    }
+    .banner .container {
+        top: 10px; 
+    }
+	.banner.video-bg .container {
+		top: 30%;
+	}
+    .banner .recent-cause .container {
+        top: 0;
+        webkit-transform: translateY(0%);
+          -ms-transform: translateY(0%);
+               transform: translateY(0%);
+    }
+    .most-recent, .recent-cause h3 {
+        display: block;
+        margin-bottom: 18px;
+    }
+    .recent-cause .promo {
+        padding: 0;
+    }    
+    .recent-cause h3 {
+        font-size: 18px;
+    }
+	.parallax {
+	  background-attachment: fixed !important;
+	}
+	.contact-block {
+		z-index: inherit;
+	}	
+    .kenburnsy {
+        height: 250px!important;
+    }
+    /*.single-cause-block {
+        width: auto;
+    }*/
+	.single-cause-block, .event-block, .news-block, .member-block {
+	    width: auto;	
+	}
+}
+
