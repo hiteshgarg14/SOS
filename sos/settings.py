@@ -49,11 +49,12 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
 ]
-SITE_ID = 1
+SITE_ID = 2
 
 # auth and allauth settings
 LOGIN_REDIRECT_URL = '/'
-SOCIALACCOUNT_QUERY_EMAIL = False
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
 SOCIALACCOUNT_PROVIDERS = \
     {'facebook':
        {'METHOD': 'js_sdk',
@@ -72,7 +73,6 @@ SOCIALACCOUNT_PROVIDERS = \
             'updated_time'],
         }
     }
-
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
