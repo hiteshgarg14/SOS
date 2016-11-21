@@ -1,44 +1,47 @@
 
 <!DOCTYPE html>
+{% load staticfiles %}
+{% load socialaccount %}
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>khushbu-Fragrance of Indian Women | Non-Profit, Charity and Fundraising</title>
 	<meta name="description" content="khushbu is a Non-Profit, Charity Fundraising Organisation">
     <meta name="author" content="CodePassenger">
-	
-	<!-- Mobile Specific Meta -->	
+
+	<!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
 	<!-- Bootstrap -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
+	<link href="{% static 'sosapp/assets/css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- TimeCirlce style -->
-    <link rel="stylesheet" href="assets/css/TimeCircles.css">
+	<link rel="stylesheet" href="{% static 'sosapp/assets/css/TimeCircles.css' %}">
 
     <!-- Magnific Popup style -->
-    <link rel="stylesheet" href="assets/css/magnific-popup.css">
-    
+    <link rel="stylesheet" href="{% static 'sosapp/assets/css/magnific-popup.css' %}">
+
     <!-- animate style -->
-    <link rel="stylesheet" href="assets/css/animate.css">
-    
+    <link rel="stylesheet" href="{% static 'sosapp/assets/css/animate.css' %}">
+
     <!-- Custom stylesheet-->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    
+    <link rel="stylesheet" href="{% static 'sosapp/assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'sosapp/assets/css/responsive.css' %}">
+
     <!-- Font awesome -->
-    <link rel="stylesheet" href="assets/font-awesome-4.3.0/css/font-awesome.min.css">    
-    
+    <link rel="stylesheet" href="{% static 'sosapp/assets/font-awesome-4.3.0/css/font-awesome.min.css' %}">
+
 
     <!-- Added google font -->
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans:700%20Open+Sans:400italic,700,600,800,400' rel='stylesheet' type='text/css'>
 
     <!--Fav and touch icons-->
-    <link rel="shortcut icon" href="images/icons/favicon.ico">
-    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="{% static 'sosapp/images/icons/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'sosapp/images/icons/apple-touch-icon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'sosapp/images/icons/apple-touch-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'sosapp/images/icons/apple-touch-icon-114x114.png' %}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,9 +55,9 @@
 	<div class="pre-loader">
 		<div class="spinner"></div>
 	</div>
-  
+
    <!-- header start -->
-   <header id="header" class="navbar-fixed-top">	
+   <header id="header" class="navbar-fixed-top">
 	    <!-- Sticky Navigation Start -->
         <div id="header-top" class="header-top">
 	   	   <nav class="navbar navbar-default" role="navigation">
@@ -91,25 +94,25 @@
 						                    <li><a href="#news">NEWS</a></li>
 						                    <li><a href="#map">Contact</a></li>
 						                    <li><a href="#">Donate<i class="fa fa-heart"></i></a></li>
-						                  </ul>             
+						                  </ul>
 						                </div><!-- /.navbar-collapse -->
 						       		</div>
 			       				</div>
 			       			</div><!-- /.nav-block -->
-			       		</div>		       			       			
+			       		</div>
 		       		</div>
 		       	</div>
 	       </nav> <!-- nav end -->
 	   </div><!-- /.header-top -->
-        <!-- Sticky Navigation End -->	   
+        <!-- Sticky Navigation End -->
    </header>
    <!-- header end -->
-   
-   <!-- banner start --> 
+
+   <!-- banner start -->
    <section id="banner" class="banner">
-        <img class="banner-img" src="images/banner.jpg" alt="Banner Image" />
+        <img class="banner-img" src="{% static 'sosapp/images/banner.jpg' %}" alt="Banner Image" />
         <div class="container-holder">
-        	
+
         </div>
         <!-- /.container-holder end -->
         	<div class="container">
@@ -138,19 +141,29 @@
 	   	    			</div>
 	   	    			<div class="col-sm-6">
 	   	    				<div class="promo">
-			   	   				<a href="#" class="btn default-btn light-blue">JOIN WITH US</a> 
-			   	   				<span class="or-block">
+			   	   				<!--<a href="#" class="btn default-btn light-blue">JOIN WITH US</a>-->
+								{% if request.user.is_authenticated %}
+								<a href="{% url 'sos:logout' %}" class="btn default-btn light-blue">Logout</a>
+								<span class="or-block">
+			   	   					<span class="or">or</span>
+			   	   				</span>
+								<a href="#" class="btn default-btn">MAKE A DONATION</a>
+								{% else %}
+								<a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn default-btn light-blue">Login / Signup</a>
+								<span class="or-block">
 			   	   					<span class="or">or</span>
 			   	   				</span>
 			   	   				<a href="#" class="btn default-btn">MAKE A DONATION</a>
+								{% endif %}
+
 			   	   			</div>
 	   	    			</div>
 	   	    		</div>
 	   	    	</div>
 	   	    </div>
-	   	    <!-- /.recent-cause end -->  
+	   	    <!-- /.recent-cause end -->
    </section>
-   <!-- banner end -->  
+   <!-- banner end -->
 
     <!-- aboutus start -->
    <section id="aboutus" class="aboutus white">
@@ -176,7 +189,7 @@
 				   				</div>
 				   				<!-- /.caption-btn end -->
 			   			    </div>
-			   			    <!-- /.aboutus-block end -->  
+			   			    <!-- /.aboutus-block end -->
 	   			    	</div>
 	   			    	<div class="col-sm-6">
 	   			    		<div class="aboutus-block blue wow animated fadeInUp">
@@ -208,7 +221,7 @@
 	   			</div>
 	   			<div class="col-sm-6">
 	   			    <div class="video-block wow animated fadeInUp">
-	   			    	<img class="img-responsive" src="images/gallery/gallery_image_04.jpg" alt="about us">
+	   			    	<img class="img-responsive" src="{% static 'sosapp/images/gallery/gallery_image_04.jpg' %}" alt="about us">
 	   			    	<a href="http://vimeo.com/45830194" class="glyphicon glyphicon-play play-2"></a>
 	   			    </div>
 	   			    <!-- /.video-block end -->
@@ -228,17 +241,17 @@
 		       		    <div id="support-content-block-left" class="content-block-left">
 		       		    	<h3 class="head-pro">SUPPORT WOMEN AND GIRL</h3>
 		       			    <p>Make a difference and set an example</p>
-		       		    </div>		       			
+		       		    </div>
 		       		</div>
 		       		<div class="col-sm-6 text-right">
 		       		    <div id="support-content-block-right" class="content-block-right">
 		       		    	<p>Buy our product form ebay or Amazon<br>and make your contribution</p>
 		       			    <a href="#" class="btn default-btn pink">SHOP NOW</a>
-		       		    </div>		       				
+		       		    </div>
 		       		</div>
 		       	</div>
 	       </div>
-       </div><!-- /.color-overlay -->       
+       </div><!-- /.color-overlay -->
    </section>
    <!-- support end -->
 
@@ -259,9 +272,9 @@
 	       			<div class="single-cause-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
 	       				<div class="cause-img">
 	       					<span class="cause-caption">IMPROVE MATERNAL HEALTH</span>
-	       					<img class="img-responsive" src="images/cause_image_01.jpg" alt="cause image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/cause_image_01.jpg' %}" alt="cause image">
 	       				</div><!-- /.cause-img -->
-						
+
 	                    <div class="cause-body">
 	                    	<div class="cause-head">
 	                    		<div class="pull-left">
@@ -277,7 +290,7 @@
 	                    		<div class="slide-roller">
 				   	   				<div class="slide-roller-holder">
 				   	   					<div class="slide-fillup">
-				   	   						
+
 				   	   					</div><!-- /.slide-fillup -->
 				   	   				</div><!-- /.slide-roller-holder -->
 				   	   			</div><!-- /.slider-roller -->
@@ -285,11 +298,11 @@
 	                    	<p><a href="#" class="btn default-btn btn-trans">DONATE NOW</a></p>
 	                    </div><!-- /.cause-body -->
 	       			</div><!-- /.single-cause-block -->
-					
+
 	       			<div class="single-cause-block wow animated fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
 	       				<div class="cause-img">
 	       					<span class="cause-caption">EDUCATION FOR ALL</span>
-	       					<img class="img-responsive" src="images/cause_image_02.jpg" alt="cause image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/cause_image_02.jpg' %}" alt="cause image">
 	       				</div><!-- /.cause-img -->
 	                    <div class="cause-body">
 	                    	<div class="cause-head">
@@ -306,7 +319,7 @@
 	                    		<div class="slide-roller">
 				   	   				<div class="slide-roller-holder">
 				   	   					<div class="slide-fillup">
-				   	   						
+
 				   	   					</div><!-- /.slide-fillup -->
 				   	   				</div><!-- /.slide-roller-holder -->
 				   	   			</div><!-- /.slider-roller -->
@@ -314,11 +327,11 @@
 	                    	<p><a href="#" class="btn default-btn btn-trans">DONATE NOW</a></p>
 	                    </div><!-- /.cause-body -->
 	       			</div><!-- /.single-cause-block -->
-					
+
 	       			<div class="single-cause-block wow animated fadeInUp" data-wow-delay="0.9s" data-wow-duration="1s">
 	       				<div class="cause-img">
 	       					<span class="cause-caption">WOMEN RIGHT MOVEMENT</span>
-	       					<img class="img-responsive" src="images/cause_image_03.jpg" alt="cause image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/cause_image_03.jpg' %}" alt="cause image">
 	       				</div><!-- /.cause-img -->
 	                    <div class="cause-body">
 	                    	<div class="cause-head">
@@ -335,7 +348,7 @@
 	                    		<div class="slide-roller">
 				   	   				<div class="slide-roller-holder">
 				   	   					<div class="slide-fillup">
-				   	   						
+
 				   	   					</div><!-- /.slide-fillup -->
 				   	   				</div><!-- /.slide-roller-holder -->
 				   	   			</div><!-- /.slider-roller -->
@@ -363,13 +376,13 @@
 		       		<div class="col-sm-8 text-right">
 		       		    <div id="next-event-content-block-right" class="content-block-right">
 		       		    	<h4>STOP VIOLENCE & RAPE AND<br>HONOR THE WOMEN</h4>
-			       			
-			       			 <div class="countdown"></div>			       			
-		       		    </div><!-- /.content-block-right -->		       			
+
+			       			 <div class="countdown"></div>
+		       		    </div><!-- /.content-block-right -->
 		       		</div>
 		       	</div>
 	       </div>
-       </div><!-- /.color-overlay -->       
+       </div><!-- /.color-overlay -->
    </section>
    <!-- Next Upcoming event end -->
 
@@ -392,20 +405,20 @@
 	       		<div class="col-md-4">
 	       			<div class="event-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
 	       				<div class="event-img">
-	       					<img class="img-responsive" src="images/event_image_01.jpg" alt="event image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/event_image_01.jpg' %}" alt="event image">
 	       					<div class="event-hover">
 	       						<div class="event-timing">
 	       						    <div class="countdown1"></div>
 	       						</div><!-- /.event-timing -->
 	       					</div><!-- /.event-hover -->
 	       				</div><!-- /.event-img -->
-						
+
 	       				<div class="event-body">
    							<div class="event-time">
    								<span class="event-date">25</span>
    								<span class="event-month">NOVEMBER</span>
    							</div><!-- /.event-date -->
-   						
+
    							<div class="event-detail">
    								<h6><a href="blog-single.html">MATERNAL HEALTH AWARNESS</a></h6>
    								<a href="#" class="event-place"><i class="fa fa-map-marker"></i> Times square, Newyork</a>
@@ -413,53 +426,53 @@
 	       				</div><!-- /.event-body -->
 	       			</div><!-- /.event-block -->
 	       		</div>
-				
+
 	       		<div class="col-md-4">
 	       			<div class="event-block wow animated fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
 	       				<div class="event-img">
-	       					<img class="img-responsive" src="images/event_image_02.jpg" alt="event image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/event_image_02.jpg' %}" alt="event image">
 	       					<div class="event-hover">
 	       						<div class="event-timing">
 	       							<div class="countdown1"></div>
 	       						</div><!-- /.event-timing -->
 	       					</div><!-- /.event-hover -->
 	       				</div><!-- /.event-img -->
-						
+
 	       				<div class="event-body">
    							<div class="event-time">
    								<span class="event-date">27</span>
    								<span class="event-month">NOVEMBER</span>
    							</div><!-- /.event-date -->
-							
+
    							<div class="event-detail">
    								<h6><a href="blog-single.html">RAISE VOICE TO STOP RAPE</a></h6>
    								<a href="#" class="event-place"><i class="fa fa-map-marker"></i> Berlin, Germany</a>
-   							</div><!-- /.event-detail -->       						
+   							</div><!-- /.event-detail -->
 	       				</div><!-- /.event-body -->
 	       			</div><!-- /.event-block -->
 	       		</div>
-				
+
 	       		<div class="col-md-4">
 	       			<div class="event-block wow animated fadeInUp" data-wow-delay="0.9s" data-wow-duration="1s">
 	       				<div class="event-img">
-	       					<img class="img-responsive" src="images/event_image_03.jpg" alt="event image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/event_image_03.jpg' %}" alt="event image">
 	       					<div class="event-hover">
 	       						<div class="event-timing">
 	       							<div class="countdown1"></div>
 	       						</div><!-- /.event-timing -->
 	       					</div><!-- /.event-hover -->
 	       				</div><!-- /.event-img -->
-						
+
 	       				<div class="event-body">
    							<div class="event-time">
    								<span class="event-date">30</span>
    								<span class="event-month">NOVEMBER</span>
    							</div><!-- /.event-date -->
-   						
+
    							<div class="event-detail">
    								<h6><a href="blog-single.html">THE SUMMER MOVEMENT</a></h6>
    								<a href="#" class="event-place"><i class="fa fa-map-marker"></i> Rome, Italy</a>
-   							</div><!-- /.event-detail -->       						
+   							</div><!-- /.event-detail -->
 	       				</div><!-- /.event-body -->
 	       			</div><!-- /.event-block -->
 	       		</div>
@@ -481,83 +494,83 @@
 	       		<div class="col-sm-6 text-right wow fadeInRight">
 	       		    <a class="btn default-btn btn-trans filter active" data-filter="all">ALL</a>
 	       			<a class="btn default-btn btn-trans filter" data-filter=".education">EDUCATION</a>
-	       			<a class="btn default-btn btn-trans filter" data-filter=".movement">MOVEMENT</a>       			
+	       			<a class="btn default-btn btn-trans filter" data-filter=".movement">MOVEMENT</a>
 	       		</div>
 	       	</div>
        </div>
 	       	<ul class="gallery-list">
 		       <li class="gallery-block each-item mix cat-1 col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_01.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_01.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>ANONYMOUS PROTEST</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_01.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_01.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix movement col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_02.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_02.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>FREE TO LIVE</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_02.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_02.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix education col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_03.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_03.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>ANONYMOUS PROTEST</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_03.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_03.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix movement col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_04.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_04.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>ANONYMOUS PROTEST</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_04.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_04.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix education col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_05.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_05.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>ANONYMOUS PROTEST</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_05.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_05.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix movement col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_06.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_06.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>FRESH SMILE</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_06.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_06.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix education col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_07.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_07.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>ANONYMOUS PROTEST</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_07.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_07.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-			   
+
 		       <li class="gallery-block each-item mix movement col-md-3 col-sm-4 col-xs-6" data-myorder="2">
-		       	    <img class="img-responsive" src="images/gallery_thumbnail/gallery_thumbnail_08.jpg" alt="gallery image">
+		       	    <img class="img-responsive" src="{% static 'sosapp/images/gallery_thumbnail/gallery_thumbnail_08.jpg' %}" alt="gallery image">
 		       	    <div class="gallery-hover">
 		       	    	<h5>SAY NO TO RAPE</h5>
 		       	    	<p>Loosely associated international network of activist and acktivist entities.</p>
-		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="images/gallery/gallery_image_08.jpg" class="gallery-popup"><i class="fa fa-search"></i></a></p>
+		       	    	<p><a href="#"><i class="fa fa-link"></i></a><a href="{% static 'sosapp/images/gallery/gallery_image_08.jpg' %}" class="gallery-popup"><i class="fa fa-search"></i></a></p>
 		       	    </div><!-- /.gallery-hover -->
 		       </li><!-- /.gallery-block -->
-	        </ul>	        
+	        </ul>
    </section>
    <!-- gallery end -->
 
@@ -575,7 +588,7 @@
 	   	   	<div class="row">
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="images/team_image_01.jpg" alt="member image">
+	   	   				<img class="img-responsive" src="{% static 'sosapp/images/team_image_01.jpg' %}" alt="member image">
 	   	   				<span class="member-name">
 	   	   					CHIRSTINIA PERRY
 	   	   				</span><!-- /.member-name -->
@@ -598,10 +611,10 @@
 	   	   				</div><!-- /.member-hover -->
 	   	   			</div><!-- /.member-block -->
 	   	   		</div>
-				
+
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="images/team_image_02.jpg" alt="member image">
+	   	   				<img class="img-responsive" src="{% static 'sosapp/images/team_image_02.jpg' %}" alt="member image">
 	   	   				<span class="member-name">
 	   	   					JONA DOE SMITH
 	   	   				</span><!-- /.member-name -->
@@ -626,7 +639,7 @@
 	   	   		</div>
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.7s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="images/team_image_03.jpg" alt="member image">
+	   	   				<img class="img-responsive" src="{% static 'sosapp/images/team_image_03.jpg' %}" alt="member image">
 	   	   				<span class="member-name">
 	   	   					CHIRSTINIA PERRY
 	   	   				</span><!-- /.member-name -->
@@ -649,10 +662,10 @@
 	   	   				</div><!-- /.member-hover -->
 	   	   			</div><!-- /.member-block -->
 	   	   		</div>
-				
+
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.9s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="images/team_image_04.jpg" alt="member image">
+	   	   				<img class="img-responsive" src="{% static 'sosapp/images/team_image_04.jpg' %}" alt="member image">
 	   	   				<span class="member-name">
 	   	   					Loshika Niri CHAKMA
 	   	   				</span><!-- /.member-name -->
@@ -689,7 +702,7 @@
 		   			    <div class="content-block-left">
 		   			    	<h3 class="head-pro">SUCCESS STORIES</h3>
 				            <p>Make a difference</p>
-		   			    </div><!-- /.content-block-left -->		   				
+		   			    </div><!-- /.content-block-left -->
 		   			</div>
 		   			<div class="col-sm-8">
 		   			    <div class="content-block-right">
@@ -708,11 +721,11 @@
 				   				<div class="count"><span class="counter">1026</span></div>
 				   				<span class="count-caption">COMPLETED</span>
 				   			</div><!-- /.counter-box -->
-		   			    </div><!-- /.content-block-right -->			   			
+		   			    </div><!-- /.content-block-right -->
 		   			</div>
 		   		</div>
 		   	</div>
-       </div><!-- /.color-overlay -->       
+       </div><!-- /.color-overlay -->
    </section>
    <!-- success-story end -->
 
@@ -733,25 +746,25 @@
 					  <ul class="nav nav-tabs" role="tablist">
 					    <li role="presentation" class="col-xs-6 active">
 					    	<a href="#home" aria-controls="home" role="tab" data-toggle="tab">
-					    		<img class="img-responsive" src="images/testimonial_image_01.jpg" alt="testimonial image">
+					    		<img class="img-responsive" src="{% static 'sosapp/images/testimonial_image_01.jpg' %}" alt="testimonial image">
 					    		<span class="img-hover"></span>
 					    	</a>
 					    </li>
 					    <li role="presentation" class="col-xs-6">
 					    	<a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-					    		<img class="img-responsive" src="images/testimonial_image_02.jpg" alt="testimonial image">
+					    		<img class="img-responsive" src="{% static 'sosapp/images/testimonial_image_02.jpg' %}" alt="testimonial image">
 					    		<span class="img-hover"></span>
 					    	</a>
 					    </li>
 					    <li role="presentation" class="col-xs-6">
 					    	<a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">
-					    		<img class="img-responsive" src="images/testimonial_image_03.jpg" alt="testimonial image">
+					    		<img class="img-responsive" src="{% static 'sosapp/images/testimonial_image_03.jpg' %}" alt="testimonial image">
 					    		<span class="img-hover"></span>
 					    	</a>
 					    </li>
 					    <li role="presentation" class="col-xs-6">
 					    	<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">
-					    		<img class="img-responsive" src="images/testimonial_image_04.jpg" alt="testimonial image">
+					    		<img class="img-responsive" src="{% static 'sosapp/images/testimonial_image_04.jpg' %}" alt="testimonial image">
 					    		<span class="img-hover"></span>
 					    	</a>
 					    </li>
@@ -762,7 +775,7 @@
 					  <div class="tab-content">
 					    <div role="tabpanel" class="tab-pane fade in active" id="home">
 					    	<div class="testimonial-detail">
-					    	    <img class="img-responsive" src="images/testimonial_preview_image_01.jpg" alt="testimonial image">
+					    	    <img class="img-responsive" src="{% static 'sosapp/images/testimonial_preview_image_01.jpg' %}" alt="testimonial image">
 					    		<div class="testimonial-body">
 					    			<blockquote>
 					    				<span class="quote-left"><i class="fa fa-quote-left"></i></span>
@@ -774,10 +787,10 @@
 					    		</div><!-- /.testimonial-body -->
 					    	</div><!-- /.testimonial-detail -->
 					    </div>
-						
+
 					    <div role="tabpanel" class="tab-pane fade" id="profile">
 					    	<div class="testimonial-detail">
-					    	    <img class="img-responsive" src="images/testimonial_preview_image_02.jpg" alt="testimonial image">
+					    	    <img class="img-responsive" src="{% static 'sosapp/images/testimonial_preview_image_02.jpg' %}" alt="testimonial image">
 					    		<div class="testimonial-body">
 					    			<blockquote>
 					    				<span class="quote-left"><i class="fa fa-quote-left"></i></span>
@@ -789,10 +802,10 @@
 					    		</div><!-- /.testimonial-body -->
 					    	</div><!-- /.testimonial-detail -->
 					    </div>
-						
+
 					    <div role="tabpanel" class="tab-pane fade" id="messages">
 					    	<div class="testimonial-detail">
-					    	    <img class="img-responsive" src="images/testimonial_preview_image_03.jpg" alt="testimonial image">
+					    	    <img class="img-responsive" src="{% static 'sosapp/images/testimonial_preview_image_03.jpg' %}" alt="testimonial image">
 					    		<div class="testimonial-body">
 					    			<blockquote>
 					    				<span class="quote-left"><i class="fa fa-quote-left"></i></span>
@@ -804,10 +817,10 @@
 					    		</div><!-- /.testimonial-body -->
 					    	</div><!-- /.testimonial-detail -->
 					    </div>
-						
+
 					    <div role="tabpanel" class="tab-pane fade" id="settings">
 					    	<div class="testimonial-detail">
-					    	    <img class="img-responsive" src="images/testimonial_preview_image_04.jpg" alt="testimonial image">
+					    	    <img class="img-responsive" src="{% static 'sosapp/images/testimonial_preview_image_04.jpg' %}" alt="testimonial image">
 					    		<div class="testimonial-body">
 					    			<blockquote>
 					    				<span class="quote-left"><i class="fa fa-quote-left"></i></span>
@@ -825,24 +838,24 @@
        </div>
    </section>
    <!-- Testimonial end -->
-   
+
    <!-- Partner start -->
    <section id="partner" class="partner">
         <div class="container">
     		<div class="row">
-    			<div class="col-md-3 wow fadeInLeft">				    
+    			<div class="col-md-3 wow fadeInLeft">
                     <h3 class="head-pro">OUR PARTNERS</h3>
                     <p>Believe in us with trust</p>
     			</div>
     			<div class="col-md-9">
     				<div class="partner-logo fade-green wow fadeInDown">
-    					<a href="#"><img src="images/partner_logo_01.png" alt="partner logo"></a>
+    					<a href="#"><img src="{% static 'sosapp/images/partner_logo_01.png' %}" alt="partner logo"></a>
     				</div>
     				<div class="partner-logo wow fadeInDown">
-    					<a href="#"><img src="images/partner_logo_02.png" alt="partner logo"></a>
+    					<a href="#"><img src="{% static 'sosapp/images/partner_logo_02.png' %}" alt="partner logo"></a>
     				</div>
     				<div class="partner-logo fade-green wow fadeInDown">
-    					<a href="#"><img src="images/partner_logo_03.png" alt="partner logo"></a>
+    					<a href="#"><img src="{% static 'sosapp/images/partner_logo_03.png' %}" alt="partner logo"></a>
     				</div>
     			</div>
     		</div>
@@ -865,14 +878,14 @@
 	       		<div class="col-md-4 col-sm-6">
 	       			<div class="news-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
 	       				<div class="news-img">
-	       					<img class="img-responsive" src="images/news_image_01.jpg" alt="news image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/news_image_01.jpg' %}" alt="news image">
 	       					<div class="news-hover">
 	       						<a href="blog-single.html" class="news-link">
 	       							<i class="fa fa-link"></i>
 	       						</a>
 	       					</div><!-- /.news-hover -->
 	       				</div><!-- /.news-img -->
-						
+
 	       				<div class="news-body">
 							<div class="news-head">
 								<span class="news-reporter">
@@ -883,20 +896,20 @@
 									<i class="fa fa-calendar"></i> September 12, 2015
 								</span>
 								<!-- /.reporter-date end -->
-							</div><!-- /.news-time -->				
-						
+							</div><!-- /.news-time -->
+
 							<div class="news-detail">
 							    <h5><a href="#">Women Are Born Free and it’s their Birth Right</a></h5>
 							    <p>Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit aut fugit, sed quia consequuntur magolores eos qui ratione voluptatem sequi nesciunt.</p>
-							</div><!-- /.news-detail -->       						
+							</div><!-- /.news-detail -->
 	       				</div><!-- /.news-body end -->
 	       			</div><!-- /.news-block -->
 	       		</div>
-				
+
 	       		<div class="col-md-4 col-sm-6">
 	       			<div class="news-block wow animated fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
 	       				<div class="news-img">
-	       					<img class="img-responsive" src="images/news_image_02.jpg" alt="news image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/news_image_02.jpg' %}" alt="news image">
 	       					<div class="news-hover">
 	       						<a href="blog-single.html" class="news-link">
 	       							<i class="fa fa-link"></i>
@@ -913,19 +926,19 @@
 									<i class="fa fa-calendar"></i> September 12, 2015
 								</span>
 								<!-- /.reporter-date end -->
-							</div><!-- /.news-time -->				
-						
+							</div><!-- /.news-time -->
+
 							<div class="news-detail">
 							    <h5><a href="#">Women Are Born Free and it’s their Birth Right</a></h5>
 							    <p>Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit aut fugit, sed quia consequuntur magolores eos qui ratione voluptatem sequi nesciunt.</p>
-							</div><!-- /.news-detail -->       						
+							</div><!-- /.news-detail -->
 	       				</div><!-- /.news-body end -->
 	       			</div><!-- /.news-block -->
 	       		</div>
 	       		<div class="col-md-4 col-sm-6">
 	       			<div class="news-block wow animated fadeInUp" data-wow-delay="0.9s" data-wow-duration="1s">
 	       				<div class="news-img">
-	       					<img class="img-responsive" src="images/news_image_03.jpg" alt="news image">
+	       					<img class="img-responsive" src="{% static 'sosapp/images/news_image_03.jpg' %}" alt="news image">
 	       					<div class="news-hover">
 	       						<a href="blog-single.html" class="news-link">
 	       							<i class="fa fa-link"></i>
@@ -942,12 +955,12 @@
 									<i class="fa fa-calendar"></i> September 12, 2015
 								</span>
 								<!-- /.reporter-date end -->
-							</div><!-- /.news-time -->				
-						
+							</div><!-- /.news-time -->
+
 							<div class="news-detail">
 							    <h5><a href="#">Women Are Born Free and it’s their Birth Right</a></h5>
 							    <p>Nemo enim ipsam voluptatem quia voluptas aspernatur aut odit aut fugit, sed quia consequuntur magolores eos qui ratione voluptatem sequi nesciunt.</p>
-							</div><!-- /.news-detail -->       						
+							</div><!-- /.news-detail -->
 	       				</div><!-- /.news-body end -->
 	       			</div><!-- /.news-block -->
 	       		</div>
@@ -962,7 +975,7 @@
        	   <div class="container">
 	   	    	<div class="row">
 	   	    		<div class="col-sm-12 text-center wow fadeInDown">
-	   	    			<a href="http://vimeo.com/45830194" class="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>	
+	   	    			<a href="http://vimeo.com/45830194" class="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
 	   	    		</div>
 	   	    	</div>
 	   	    </div>
@@ -977,7 +990,7 @@
 	   	    	<div class="col-sm-12">
 	   	    		<div class="heading">
 	   					<h3><span class="head">GET IN TOUCH</span></h3>
-	   					<p>We have numbers of supportive teams around the world to help you to meet your needs. You can contact with us through online 
+	   					<p>We have numbers of supportive teams around the world to help you to meet your needs. You can contact with us through online
                         or you can visit our main office in Newyork Right House to know more about us.</p>
 	   				</div>
 	   	    	</div>
@@ -989,7 +1002,7 @@
 		                   <br>
 		                   <p>
 		                     Phone: +11012475863 <br>
-		                     Fax: +88145792368 
+		                     Fax: +88145792368
 		                   </p>
 		                </div>
 		   	    	</div>
@@ -999,7 +1012,7 @@
 	                   <br>
 	                   <p>
 	                     Rights House 201/DA<br>
-						 Newyork, NYC	
+						 Newyork, NYC
 	                   </p>
 	                </div>
 	   	    	</div>
@@ -1009,19 +1022,19 @@
 	                   <br>
 	                   <p>
 	                     contact@yourdomain.com <br>
-                         support@yourdomain.com	                     
+                         support@yourdomain.com
 	                   </p>
 	                </div>
 	   	    	</div>
 	   	    </div>
        </div>
-       <!-- /.container -->   	    
+       <!-- /.container -->
    </section>
    <!-- contact end -->
 
    <!-- map start -->
    <div id="map" class="map">
-	   	
+
    </div>
    <!-- map end -->
 
@@ -1042,7 +1055,7 @@
 									<div class="form-group">
 										<label class="sr-only" for="email">Email</label>
 									    <i class="fa fa-envelope-o"></i>
-									    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Adress" required= 
+									    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Adress" required=
                                         "required">
 									</div>
 									<div class="form-group">
@@ -1097,7 +1110,7 @@
 	    						<li><a href="#"> <i class="fa fa-angle-right"></i> Latest Blog</a></li>
 	    					</ul>
 	    				</div>
-	    			</div>    			
+	    			</div>
    	    		</div>
    	    		<div class="col-sm-4">
    	    			<h4>SUBSCRIBE</h4>
@@ -1117,10 +1130,10 @@
    	    		<div class="col-sm-4">
    	    			<h4>FLICKER PHOTOS</h4>
    	    			<ul class="photo">
-   	    				<li><a href="#"><img class="img-responsive" src="images/footer_flickr_01.jpg" alt="image"></a> </li>
-   	    				<li><a href="#"><img class="img-responsive" src="images/footer_flickr_02.jpg" alt="image"></a></li>
-   	    				<li><a href="#"><img class="img-responsive" src="images/footer_flickr_03.jpg" alt="image"></a></li>
-   	    				<li><a href="#"><img class="img-responsive" src="images/footer_flickr_04.jpg" alt="image"></a></li>
+   	    				<li><a href="#"><img class="img-responsive" src="{% static 'sosapp/images/footer_flickr_01.jpg' %}" alt="image"></a> </li>
+   	    				<li><a href="#"><img class="img-responsive" src="{% static 'sosapp/images/footer_flickr_02.jpg' %}" alt="image"></a></li>
+   	    				<li><a href="#"><img class="img-responsive" src="{% static 'sosapp/images/footer_flickr_03.jpg' %}" alt="image"></a></li>
+   	    				<li><a href="#"><img class="img-responsive" src="{% static 'sosapp/images/footer_flickr_04.jpg' %}" alt="image"></a></li>
    	    			</ul>
    	    		</div>
    	    	</div>
@@ -1149,37 +1162,37 @@
    <!-- footer end -->
 
    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery.js"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.js' %}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{% static 'sosapp/assets/js/bootstrap.min.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/jquery.scrollTo.min.js"></script>
-	<script src="assets/js/jquery.localScroll.min.js"></script>
-	<script src="assets/js/jquery.nav.js"></script>
-    <script src="assets/js/jquery.flexslider-min.js"></script>
-    <script src="assets/js/jquery.mixitup.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.js"></script>
-    <script src="assets/js/TimeCircles.js"></script>
-    <script src="assets/js/waypoints.min.js"></script>
-    <script src="assets/js/jquery.counterup.min.js"></script>
-    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
-	<script src="assets/js/jquery.countdown.min.js"></script>
-    <script src="assets/js/jquery.placeholder.js"></script>
-    <script src="assets/js/matchMedia.js"></script>
-    <script src="assets/js/jquery.stellar.min.js"></script>
-    <script src="assets/js/wow.js"></script>
+    <script src="{% static 'sosapp/assets/js/smoothscroll.js' %}"></script>
+	<script src="{% static 'sosapp/assets/js/jquery.scrollTo.min.js' %}"></script>
+	<script src="{% static 'sosapp/assets/js/jquery.localScroll.min.js' %}"></script>
+	<script src="{% static 'sosapp/assets/js/jquery.nav.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.flexslider-min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.mixitup.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.magnific-popup.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/TimeCircles.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+	<script src="{% static 'sosapp/assets/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.placeholder.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/matchMedia.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/wow.js' %}"></script>
 
-    <script src="assets/js/script.js"></script>
-    
-   
-    
-    <script>			
-		
+    <script src="{% static 'sosapp/assets/js/script.js' %}"></script>
+
+
+
+    <script>
+
 		// The following example creates complex markers to indicate beaches near
 		// Sydney, NSW, Australia. Note that the anchor is set to
 		// (0,32) to correspond to the base of the flagpole.
-		
+
 		function initialize() {
 			// Create an array of styles.
 	  var styles = [
@@ -1196,7 +1209,7 @@
 	       { color: "#A4C5C2" },
 	       { weight: 2.2 },
 	       { gamma: 2.54 }
-	      ] 
+	      ]
 	    },
 	    {
 	      featureType: "road",
@@ -1218,8 +1231,8 @@
 	  // as well as the name to be displayed on the map type control.
 	  var styledMap = new google.maps.StyledMapType(styles,
 	    {name: "Styled Map"});
-			
-			
+
+
 			//40.705643, -74.0107624
 		  var mapOptions = {
 			zoom: 17,
@@ -1234,35 +1247,35 @@
 										mapOptions);
 		  map.mapTypes.set('map_style', styledMap);
 		  map.setMapTypeId('map_style');
-		
+
 		  setMarkers(map, beaches);
 		}
-		
+
 		/**
 		 * Data for the markers consisting of a name, a LatLng and a zIndex for
 		 * the order in which these markers should display on top of each
 		 * other.
 		 */
 		var beaches = [
-		  ['Greenwich St Beach', 40.707200, -74.014003 , 4], 
+		  ['Greenwich St Beach', 40.707200, -74.014003 , 4],
 		  ['Rector St Beach', 40.707522, -74.012183, 5],
-		  ['Cronulla Beach', 40.707324, -74.009851, 3], 
-		  ['Gold st Beach', 40.707284, -74.006739, 2], 
+		  ['Cronulla Beach', 40.707324, -74.009851, 3],
+		  ['Gold st Beach', 40.707284, -74.006739, 2],
 		  ['Maroubra Beach', 40.707316, -74.004830, 1],
 		];
-		
+
 		function setMarkers(map, locations) {
 		  // Add markers to the map
-		
+
 		  // Marker sizes are expressed as a Size of X,Y
 		  // where the origin of the image (0,0) is located
 		  // in the top left of the image.
-		
+
 		  // Origins, anchor positions and coordinates of the marker
 		  // increase in the X direction to the right and in
 		  // the Y direction down.
 		  var image = {
-			url: 'images/marker.png',
+			url: "{% static 'sosapp/images/marker.png' %}",
 			// This marker is 20 pixels wide by 32 pixels tall.
 			size: new google.maps.Size(43, 63),
 			// The origin for this image is 0,0.
@@ -1292,13 +1305,13 @@
 			});
 		  }
 		}
-		
+
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 
 
 	</script>
-   
+
 
 </body>
 </html>
