@@ -1,7 +1,7 @@
 $(document).ready(function() {
     "use strict";
-	
-	
+
+
 //=================================================
 //==================== Pre-loader==================
 //==================================================
@@ -15,22 +15,22 @@ $(document).ready(function() {
 	});
 
 //====================================================
-//==================Navigation========================	
+//==================Navigation========================
 //====================================================
 
-  
+
   if ( matchMedia( 'only screen and (min-width: 769px)' ).matches ) {
-		$(window).scroll(function() {       
+		$(window).scroll(function() {
 		   var $scrollHeight = $(window).scrollTop();
 			  if ($scrollHeight > 120) {
 				$('#header nav').addClass('addbg').slideDown(400);
 			  } else {
 				$('#header nav').removeClass('addbg');
 			  }
-	   });   
+	   });
   }
- 
-     $(window).scroll(function() { 
+
+     $(window).scroll(function() {
          var $scrollHeightt = $(window).scrollTop();
            if ($scrollHeightt > 60 ) {
              $('#single-header-top nav').addClass("navbar-fixed-top");
@@ -40,22 +40,22 @@ $(document).ready(function() {
      });
 
 
-	  
+
 //   =======================================================
 //   =======================Countdown=======================
 //   =======================================================
-  
+
 
 	 $('.countdown').countdown({
 		 date: "June 7, 2087 15:03:25",
 		  render: function(data) {
 			$(this.el).html("<div>"
 			+ this.leadingZeros(data.days)
-			+ " <span>days</span></div><div>" 
+			+ " <span>days</span></div><div>"
 			+ this.leadingZeros(data.hours)
-			+ " <span>hours</span></div><div>" 
+			+ " <span>hours</span></div><div>"
 			+ this.leadingZeros(data.min)
-			+ " <span>minute</span></div><div>" 
+			+ " <span>minute</span></div><div>"
 			+ this.leadingZeros(data.sec)
 			+ " <span>sec</span></div>");
 	  }
@@ -63,9 +63,9 @@ $(document).ready(function() {
 	 $('.countdown1').countdown({
 		 date: "June 7, 2087 15:03:25",
 		  render: function(data) {
-			$(this.el).html("<div>" 
+			$(this.el).html("<div>"
 			+ this.leadingZeros(data.days)
-			+ " <span>days</span></div><div>" 
+			+ " <span>days</span></div><div>"
 			+ this.leadingZeros(data.hours)
 			+ " <span>hours</span></div><div>"
 			+ this.leadingZeros(data.min)
@@ -74,8 +74,8 @@ $(document).ready(function() {
 			+ " <span>second</span></div>");
 	  }
 	 });
-	   
-	   
+
+
 
 //====================================================
 //===========Appearence of navigation=================
@@ -97,7 +97,7 @@ $(document).ready(function() {
     $('.search-btn').click(function() {
         $('.search-box').toggle();
     });
-    
+
 //====================================================
 //===============Text Slider on Banner================
 //====================================================
@@ -111,22 +111,22 @@ $(document).ready(function() {
             touch: true,
             useCSS: false,
             direction: "vertical",
-			before: function(slider){        
+			before: function(slider){
 			 var height = $('.flex_text').find('.flex-viewport').innerHeight();
 			 $('.flex_text').find('li').css({ height: height + 'px' });
-        }       
-    }); 
+        }
+    });
 
-   
-    
-		
+
+
+
 //===================================================
 //=======================-Mix it up==================
 //===================================================
 
         $('.gallery-list').mixItUp();
-		
-		
+
+
 //===================================================
 //================ Magnific Image Popup==============
 //===================================================
@@ -156,19 +156,19 @@ $(document).ready(function() {
           //tCounter: '<span class="mfp-counter">%curr% of %total%</span>' // markup of counter
         }
    });
-   
-      
-   
-   
+
+
+
+
 //=============================================================
 //=============== Animate and WOW Animation====================
 //============================================================
-    
+
 	new WOW().init();
 
-   
+
 // ------------- Magnific Video Popup--------------
-   
+
  	$('.play').magnificPopup({
 	  disableOn: 700,
 	  type: 'iframe',
@@ -186,8 +186,8 @@ $(document).ready(function() {
     preloader: false,
     fixedContentPos: false
   });
-  
-  
+
+
 
 //=====================================================
 //======================== COUNTER=====================
@@ -207,10 +207,10 @@ $(window).scroll(function() {
       $('#go-to-top a').fadeIn('slow');
       } else {
       $('#go-to-top a').fadeOut('slow');
-    } 
+    }
 });
 
-  
+
 $('#go-to-top a').on( "click",function(){
   $("html,body").animate({ scrollTop: 0 }, 750);
   return false;
@@ -260,12 +260,12 @@ if ( matchMedia( "(min-width: 769px) and (max-height: 700px)" ).matches ) {
 
  var height = $(window).height();
   $('.banner.video-bg').css('height', height + 'px');
- 
- 
+
+
 //====================================================
 //=====================  STELLAR =====================
 //====================================================
- 
+
 
 $(window).stellar({
   horizontalScrolling: false
@@ -288,21 +288,21 @@ $(function() {
 
 	$(".newsletter-signup").ajaxChimp({
 		callback: mailchimpResponse,
-		url: "http://codepassenger.us10.list-manage.com/subscribe/post?u=6b2e008d85f125cf2eb2b40e9&id=6083876991" // Replace your mailchimp post url inside double quote "".  
+		url: "http://codepassenger.us10.list-manage.com/subscribe/post?u=6b2e008d85f125cf2eb2b40e9&id=6083876991" // Replace your mailchimp post url inside double quote "".
 	});
 
 	function mailchimpResponse(resp) {
 		 if(resp.result === 'success') {
-		 
+
 			$('.newsletter-success').html(resp.msg).fadeIn().delay(3000).fadeOut();
-			
+
 		} else if(resp.result === 'error') {
 			$('.newsletter-error').html(resp.msg).fadeIn().delay(3000).fadeOut();
-		}  
+		}
 	};
 
 
-	
+
   // --------------Contact Form Ajax request-----------------------
 
     $('.contact_form').on('submit', function(event){
@@ -320,21 +320,21 @@ $(function() {
 
     $.ajax({
       type: "POST",
-      url: "email.php",
+      url: "/",
       data: data,
       success: function(msg){
 	     $('.contact-success').fadeIn().delay(3000).fadeOut();
       }
     });
   });
-  
-  
-  
-  
+
+
+
+
 
 //=================================
 //===  IE10 ON WINDOWS 8 FIX    ====
-//=================================== 
+//===================================
 
 
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
@@ -352,7 +352,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 ========================================*/
 
     $('.horizon-swiper').horizonSwiper();
-      
+
 
 
 /*=============================================
@@ -361,13 +361,9 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
     $('.navigate-me').on('click',function(){
       window.location = $(this).data('href');
-    });      
-    
-      
+    });
+
+
 
 
 });
-
-
-
-

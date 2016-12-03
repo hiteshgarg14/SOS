@@ -1045,48 +1045,52 @@
 
    </div>
    <!-- map end -->
-
+{% if not request.user.is_authenticated %}
    <!-- contact-form start -->
-   <div id="contact-form" class="contact-form">
+   <div id="contact-form" class="contact-form" style="margin-top: -220px;">
    	    <div class="container">
 	   		<div class="row">
 	   			<div class="col-sm-12">
-	   				<div class="contact-block wow fadeInDown" data-wow-duration="1s" data-wow-delay=".6s">
-	   					<form class="contact_form" role="form" action="#">
+	   				<div class="contact-block wow fadeInDown" data-wow-duration="1s" data-wow-delay=".4s">
+	   					<form  role="form"  method="POST" action="{% url 'sos:index' %}">
+							{% csrf_token %}
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="sr-only" for="name">Full name</label>
 									    <i class="fa fa-user"></i>
-									    <input type="text" class="form-control" id="name" name="name" placeholder="Your full name" required="required">
+									    <input type="text" class="form-control" id="name" name="name" placeholder="Your Full Name" required="required" {{ contact_form.name }}
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="email">Email</label>
 									    <i class="fa fa-envelope-o"></i>
 									    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Adress" required=
-                                        "required">
+                                        "required" {{ contact_form.email }}
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="phone">Phone number</label>
 									    <i class="fa fa-phone"></i>
-									    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number" required="required">
+									    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number" required="required" {{ contact_form.phone }}
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 									    <label class="sr-only" for="message">Message</label>
 									    <i class="fa fa-envelope-o"></i>
-									    <textarea class="form-control" name="message" id="message" placeholder="Write Your Message Here..."></textarea>
+									    <textarea class="form-control" name="message" id="message" placeholder="Write Your Message Here..." {{ contact_form.name }}</textarea>
 									 </div>
 									 <div class="form-group">
 									    <i class="fa fa-paper-plane"></i>
-									 	<input type="submit" name="submit" class="btn default-btn" value="SEND MESSAGE">
+									 	<!--<input type="submit" name="submit" class="btn default-btn" value="SEND MESSAGE">-->
+										<button type="submit" class="btn default-btn">SEND MESSAGE</button>
 									 </div>
 								</div>
+								<!--
 								<div class="col-sm-12">
 									<p class="contact-success">Your Message has been Successfully Sent!</p>
 									<p class="contact-error">Error! Something went wrong!</p>
 								</div>
+							-->
 							</div>
 						</form>
 	   				</div><!-- /.contact-form -->
@@ -1095,7 +1099,7 @@
 	   	</div>
    </div>
    <!-- contact-form end -->
-
+{% endif %}
    <!-- footer start -->
    <footer>
    	    <div class="container">
@@ -1124,6 +1128,7 @@
    	    			<h4>SUBSCRIBE</h4>
    	    			<p>Subscribe our online newsletter to know latest events, news, programs and projects.</p>
    	    			<form class="newsletter-signup">
+						{% csrf_token %}
    	    				<div class="form-group">
 						   <label class="sr-only" for="email">Your email address</label>
 						   <div class="input-group">
