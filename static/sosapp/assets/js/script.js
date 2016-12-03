@@ -347,4 +347,27 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   document.querySelector('head').appendChild(msViewportStyle)
 }
 
+/*========================================
+=        Swipe menu for circles          =
+========================================*/
+
+    $('.horizon-swiper').horizonSwiper();
+      
+
+
+/*=============================================
+=            navigate using button            =
+=============================================*/
+
+    $('.navigate-me').on('click',function(){
+      window.location = $(this).data('href');
+    });      
+    
+      
+
+
 });
+
+
+
+

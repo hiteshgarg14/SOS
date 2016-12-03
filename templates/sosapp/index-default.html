@@ -29,6 +29,7 @@
     <!-- Custom stylesheet-->
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/style.css' %}">
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/responsive.css' %}">
+	<link rel="stylesheet" href="{% static 'sosapp/assets/css/additional.css' %}">
 
     <!-- Font awesome -->
     <link rel="stylesheet" href="{% static 'sosapp/assets/font-awesome-4.3.0/css/font-awesome.min.css' %}">
@@ -42,6 +43,10 @@
     <link rel="apple-touch-icon" href="{% static 'sosapp/images/icons/apple-touch-icon.png' %}">
     <link rel="apple-touch-icon" sizes="72x72" href="{% static 'sosapp/images/icons/apple-touch-icon-72x72.png' %}">
     <link rel="apple-touch-icon" sizes="114x114" href="{% static 'sosapp/images/icons/apple-touch-icon-114x114.png' %}">
+
+	<!--  horizon slider -->
+    <link rel="stylesheet" href="{% static 'sosapp/assets/horizon-swiper-dist/horizon-swiper.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sosapp/assets/horizon-swiper-dist/horizon-theme.min.css' %}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -236,19 +241,22 @@
    <section id="support" class="support">
        <div class="color-overlay">
 	       	<div class="container">
-		       	<div class="row">
-		       		<div class="col-sm-6">
-		       		    <div id="support-content-block-left" class="content-block-left">
-		       		    	<h3 class="head-pro">SUPPORT WOMEN AND GIRL</h3>
-		       			    <p>Make a difference and set an example</p>
-		       		    </div>
-		       		</div>
-		       		<div class="col-sm-6 text-right">
-		       		    <div id="support-content-block-right" class="content-block-right">
-		       		    	<p>Buy our product form ebay or Amazon<br>and make your contribution</p>
-		       			    <a href="#" class="btn default-btn pink">SHOP NOW</a>
-		       		    </div>
-		       		</div>
+		       	<div class="row row-centered">
+
+		       		    <div class="horizon-swiper">
+		       		     <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  	<button data-href="/your-help.html" class="navigate-me the-white-circle fa fa-4 fa-lightbulb-o "></button>
+						  	<p class="col-sm-12 the-bottom-text">Your Help</p>
+						  </div>
+						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  	<button data-href="./report-once.html" class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
+						  	<p class="col-sm-12 the-bottom-text">Report Once</p>
+						  </div>
+						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  	<button data-href="./experience-share.html" class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
+						  	<p class="col-sm-12 the-bottom-text">I Experienced</p>
+						  </div>
+						</div>
 		       	</div>
 	       </div>
        </div><!-- /.color-overlay -->
@@ -1186,132 +1194,127 @@
     <script src="{% static 'sosapp/assets/js/script.js' %}"></script>
 
 
+       <script>
 
-    <script>
+   		// The following example creates complex markers to indicate beaches near
+   		// Sydney, NSW, Australia. Note that the anchor is set to
+   		// (0,32) to correspond to the base of the flagpole.
 
-		// The following example creates complex markers to indicate beaches near
-		// Sydney, NSW, Australia. Note that the anchor is set to
-		// (0,32) to correspond to the base of the flagpole.
+   		function initialize() {
+   			// Create an array of styles.
+   	  var styles = [
+   	    {
+   	      stylers: [
+   	        { hue: "#f24b6a" },
+   	        { saturation: 0 }
+   	      ]
+   	    },
+   	    {
+   	      featureType: 'water',
+   	      stylers: [
+   	       { visibility: "on" },
+   	       { color: "#A4C5C2" },
+   	       { weight: 2.2 },
+   	       { gamma: 2.54 }
+   	      ]
+   	    },
+   	    {
+   	      featureType: "road",
+   	      elementType: "geometry",
+   	      stylers: [
+   	        { lightness: 100 },
+   	        { visibility: "simplified" }
+   	      ]
+   	    },{
+   	      featureType: "road",
+   	      elementType: "labels",
+   	      stylers: [
+   	        { visibility: "off" }
+   	      ]
+   	    }
+   	  ];
 
-		function initialize() {
-			// Create an array of styles.
-	  var styles = [
-	    {
-	      stylers: [
-	        { hue: "#f24b6a" },
-	        { saturation: 0 }
-	      ]
-	    },
-	    {
-	      featureType: 'water',
-	      stylers: [
-	       { visibility: "on" },
-	       { color: "#A4C5C2" },
-	       { weight: 2.2 },
-	       { gamma: 2.54 }
-	      ]
-	    },
-	    {
-	      featureType: "road",
-	      elementType: "geometry",
-	      stylers: [
-	        { lightness: 100 },
-	        { visibility: "simplified" }
-	      ]
-	    },{
-	      featureType: "road",
-	      elementType: "labels",
-	      stylers: [
-	        { visibility: "off" }
-	      ]
-	    }
-	  ];
-
-	  // Create a new StyledMapType object, passing it the array of styles,
-	  // as well as the name to be displayed on the map type control.
-	  var styledMap = new google.maps.StyledMapType(styles,
-	    {name: "Styled Map"});
-
-
-			//40.705643, -74.0107624
-		  var mapOptions = {
-			zoom: 17,
-			center: new google.maps.LatLng(40.7065214,-74.0106551),
-			mapTypeControlOptions: {
-		    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-		   },
-		  scrollwheel: false,
-		  disableDefaultUI: true
-		  }
-		  var map = new google.maps.Map(document.getElementById('map'),
-										mapOptions);
-		  map.mapTypes.set('map_style', styledMap);
-		  map.setMapTypeId('map_style');
-
-		  setMarkers(map, beaches);
-		}
-
-		/**
-		 * Data for the markers consisting of a name, a LatLng and a zIndex for
-		 * the order in which these markers should display on top of each
-		 * other.
-		 */
-		var beaches = [
-		  ['Greenwich St Beach', 40.707200, -74.014003 , 4],
-		  ['Rector St Beach', 40.707522, -74.012183, 5],
-		  ['Cronulla Beach', 40.707324, -74.009851, 3],
-		  ['Gold st Beach', 40.707284, -74.006739, 2],
-		  ['Maroubra Beach', 40.707316, -74.004830, 1],
-		];
-
-		function setMarkers(map, locations) {
-		  // Add markers to the map
-
-		  // Marker sizes are expressed as a Size of X,Y
-		  // where the origin of the image (0,0) is located
-		  // in the top left of the image.
-
-		  // Origins, anchor positions and coordinates of the marker
-		  // increase in the X direction to the right and in
-		  // the Y direction down.
-		  var image = {
-			url: "{% static 'sosapp/images/marker.png' %}",
-			// This marker is 20 pixels wide by 32 pixels tall.
-			size: new google.maps.Size(43, 63),
-			// The origin for this image is 0,0.
-			origin: new google.maps.Point(0,0),
-			// The anchor for this image is the base of the flagpole at 0,32.
-			anchor: new google.maps.Point(0, 32)
-		  };
-		  // Shapes define the clickable region of the icon.
-		  // The type defines an HTML &lt;area&gt; element 'poly' which
-		  // traces out a polygon as a series of X,Y points. The final
-		  // coordinate closes the poly by connecting to the first
-		  // coordinate.
-		  var shape = {
-			  coords: [1, 1, 1, 20, 18, 20, 18 , 1],
-			  type: 'poly'
-		  };
-		  for (var i = 0; i < locations.length; i++) {
-			var beach = locations[i];
-			var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
-			var marker = new google.maps.Marker({
-				position: myLatLng,
-				map: map,
-				icon: image,
-				shape: shape,
-				title: beach[0],
-				zIndex: beach[3]
-			});
-		  }
-		}
-
-		google.maps.event.addDomListener(window, 'load', initialize);
+   	  // Create a new StyledMapType object, passing it the array of styles,
+   	  // as well as the name to be displayed on the map type control.
+   	  var styledMap = new google.maps.StyledMapType(styles,
+   	    {name: "Styled Map"});
 
 
+   			//40.705643, -74.0107624
+   		  var mapOptions = {
+   			zoom: 17,
+   			center: new google.maps.LatLng(40.7065214,-74.0106551),
+   			mapTypeControlOptions: {
+   		    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+   		   },
+   		  scrollwheel: false,
+   		  disableDefaultUI: true
+   		  }
+   		  var map = new google.maps.Map(document.getElementById('map'),
+   										mapOptions);
+   		  map.mapTypes.set('map_style', styledMap);
+   		  map.setMapTypeId('map_style');
 
-	</script>
+   		  setMarkers(map, beaches);
+   		}
 
+   		/**
+   		 * Data for the markers consisting of a name, a LatLng and a zIndex for
+   		 * the order in which these markers should display on top of each
+   		 * other.
+   		 */
+   		var beaches = [
+   		  ['Greenwich St Beach', 40.707200, -74.014003 , 4],
+   		  ['Rector St Beach', 40.707522, -74.012183, 5],
+   		  ['Cronulla Beach', 40.707324, -74.009851, 3],
+   		  ['Gold st Beach', 40.707284, -74.006739, 2],
+   		  ['Maroubra Beach', 40.707316, -74.004830, 1],
+   		];
 
+   		function setMarkers(map, locations) {
+   		  // Add markers to the map
+
+   		  // Marker sizes are expressed as a Size of X,Y
+   		  // where the origin of the image (0,0) is located
+   		  // in the top left of the image.
+
+   		  // Origins, anchor positions and coordinates of the marker
+   		  // increase in the X direction to the right and in
+   		  // the Y direction down.
+   		  var image = {
+   			url: "{% static 'sosapp/images/marker.png' %}",
+   			// This marker is 20 pixels wide by 32 pixels tall.
+   			size: new google.maps.Size(43, 63),
+   			// The origin for this image is 0,0.
+   			origin: new google.maps.Point(0,0),
+   			// The anchor for this image is the base of the flagpole at 0,32.
+   			anchor: new google.maps.Point(0, 32)
+   		  };
+   		  // Shapes define the clickable region of the icon.
+   		  // The type defines an HTML &lt;area&gt; element 'poly' which
+   		  // traces out a polygon as a series of X,Y points. The final
+   		  // coordinate closes the poly by connecting to the first
+   		  // coordinate.
+   		  var shape = {
+   			  coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+   			  type: 'poly'
+   		  };
+   		  for (var i = 0; i < locations.length; i++) {
+   			var beach = locations[i];
+   			var myLatLng = new google.maps.LatLng(beach[1], beach[2]);
+   			var marker = new google.maps.Marker({
+   				position: myLatLng,
+   				map: map,
+   				icon: image,
+   				shape: shape,
+   				title: beach[0],
+   				zIndex: beach[3]
+   			});
+   		  }
+   		}
+
+   		google.maps.event.addDomListener(window, 'load', initialize);
+
+   	</script>
 </body>
 </html>
