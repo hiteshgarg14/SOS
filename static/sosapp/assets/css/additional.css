@@ -40,6 +40,7 @@
     color:#747474;
 }
 .the-white-circle{
+    display:inline-block;
 	height: 200px;
 	width: 200px;
 	border: 10px solid white;
@@ -69,6 +70,7 @@
 }
 .horizon-item  {
 	padding: 10px;
+    text-align:center;
 }
 
 .fa-4 {
@@ -98,9 +100,9 @@
 	font: normal normal normal 35px/1 FontAwesome;
     content: "\f104";
 }
-
+/*
 @media (min-width:700px){
 	.the-white-circle{
 		margin-left: 20%;
 	}
-}
+}*/
