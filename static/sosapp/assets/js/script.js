@@ -364,6 +364,55 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     });
 
 
+/*===============================================
+=            contact form submission            =
+===============================================*/
 
+
+$("#contactForm").validate({
+  errorClass: "red-focus",
+  submitHandler : function(){
+
+      var form_data = $("#contactForm").serializeArray();
+      
+      $("#btn-sbmt").html("SENDING..");
+      $(".fa-elm").attr("disabled","true");
+      
+      $.post("/",form_data)
+      .done(function(response){
+        if (response.status == 1) {
+          alert( response.message );
+          // console.log(response.message);  
+        }
+        else{
+          console.error(response.errors);
+        }
+        
+        $("#btn-sbmt").html("SEND MESSAGE");
+        $(".fa-elm").removeAttr("disabled");
+      
+      })
+    return false;
+  }
+})
+
+$(".phone").validate({
+  rules: {
+      required: true,
+      number:true
+  }
+});
+
+  $('#contactForm').on( 'submit', function(){
+
+  });
+
+
+
+// patch to adjust css of fa icon of a form-control in contactForm
+  $("#contactForm").find('.fa-elm').each( function( index, element ){
+      var d = "height:"+$(element).outerHeight() +"px!important"; 
+      $(element).parent().find('i').attr("style",d);
+  })
 
 });

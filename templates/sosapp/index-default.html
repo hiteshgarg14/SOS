@@ -1047,42 +1047,41 @@
    <!-- map end -->
 {% if not request.user.is_authenticated %}
    <!-- contact-form start -->
-   <div id="contact-form" class="contact-form" style="margin-top: -220px;">
+   <div id="contact-form" class="contact-form" style="margin-top: -300px;">
    	    <div class="container">
 	   		<div class="row">
 	   			<div class="col-sm-12">
 	   				<div class="contact-block wow fadeInDown" data-wow-duration="1s" data-wow-delay=".4s">
-	   					<form  role="form"  method="POST" action="{% url 'sos:index' %}">
+	   					<form  role="form"  method="POST" id="contactForm" action="{% url 'sos:index' %}">
 							{% csrf_token %}
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="sr-only" for="name">Full name</label>
 									    <i class="fa fa-user"></i>
-									    <input type="text" class="form-control" id="name" name="name" placeholder="Your Full Name" required="required" {{ contact_form.name }}
+									    <input type="text" class="form-control fa-elm required" id="name" name="name" placeholder="Your Full Name" value="{{ contact_form.name }}">
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="email">Email</label>
 									    <i class="fa fa-envelope-o"></i>
-									    <input type="email" class="form-control" id="email" name="email" placeholder="Your Email Adress" required=
-                                        "required" {{ contact_form.email }}
+									    <input type="email" class="form-control fa-elm required" id="email" name="email" placeholder="Your Email Adress" value="{{ contact_form.email }}">
 									</div>
 									<div class="form-group">
 										<label class="sr-only" for="phone">Phone number</label>
 									    <i class="fa fa-phone"></i>
-									    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone number" required="required" {{ contact_form.phone }}
+									    <input type="number" spinner="false" class="form-control fa-elm phone required" id="phone" name="phone" minlength="10" placeholder="Phone number" value="{{ contact_form.phone }}">
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 									    <label class="sr-only" for="message">Message</label>
 									    <i class="fa fa-envelope-o"></i>
-									    <textarea class="form-control" name="message" id="message" placeholder="Write Your Message Here..." {{ contact_form.name }}</textarea>
+									    <textarea class="fa-elm form-control required" name="message" id="message" placeholder="Write Your Message Here..." >{{ contact_form.name }}</textarea>
 									 </div>
 									 <div class="form-group">
 									    <i class="fa fa-paper-plane"></i>
 									 	<!--<input type="submit" name="submit" class="btn default-btn" value="SEND MESSAGE">-->
-										<button type="submit" class="btn default-btn">SEND MESSAGE</button>
+										<button type="submit" id="btn-sbmt" class="btn fa-elm default-btn">SEND MESSAGE</button>
 									 </div>
 								</div>
 								<!--
@@ -1194,9 +1193,10 @@
     <script src="{% static 'sosapp/assets/js/jquery.placeholder.js' %}"></script>
     <script src="{% static 'sosapp/assets/js/matchMedia.js' %}"></script>
     <script src="{% static 'sosapp/assets/js/jquery.stellar.min.js' %}"></script>
+    <script src="{% static 'sosapp/assets/js/jquery.validate.min.js' %}"></script>
     <script src="{% static 'sosapp/assets/js/wow.js' %}"></script>
-
     <script src="{% static 'sosapp/assets/horizon-swiper-dist/horizon-swiper.min.js' %}"></script>
+
     <script src="{% static 'sosapp/assets/js/script.js' %}"></script>
 
 
