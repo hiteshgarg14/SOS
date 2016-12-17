@@ -7,7 +7,7 @@ import urlparse
 DEBUG = False
 
 #To be updated
-ALLOWED_HOSTS = ['www.sosdemo.herokuapp.com']
+ALLOWED_HOSTS = ['www.sosdemo.herokuapp.com', 'https://sosdemo.herokuapp.com/' , 'localhost' ]
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
