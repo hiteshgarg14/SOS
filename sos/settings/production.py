@@ -2,7 +2,7 @@ from common import *
 import psycopg2
 import urlparse
 
-"""
+
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
@@ -11,11 +11,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
-"""
 
+"""
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = MEDIA_DIR
+
 #TEMPLATE_DIR = os.path.join(BASE_DIR, '../templates')
 STATIC_DIR = os.path.join(BASE_DIR, '../static')
 STATIC_ROOT = os.path.join(BASE_DIR, '../collectstatic')
@@ -24,7 +23,8 @@ STATICFILES_DIRS = [STATIC_DIR,]
 
 
 STATIC_URL = '/collectstatic/'
-MEDIA_URL = '/media/'
+
+"""
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
