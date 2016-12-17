@@ -4,10 +4,13 @@ import urlparse
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #To be updated
 ALLOWED_HOSTS = ['*' ]
+
+#heroku plugins:install https://github.com/naaman/heroku-vim
+#heroku vim
 
 SITE_ID = 4	
 
