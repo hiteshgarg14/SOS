@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     "use strict";
 
@@ -354,16 +355,126 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     $('.horizon-swiper').horizonSwiper();
 
 
+/*==============================================
+=            content modal handler             =
+==============================================*/
 
-/*=============================================
-=            navigate using button            =
-=============================================*/
 
     $('.navigate-me').on('click',function(){
-      window.location = $(this).data('href');
+
+      if( $(this).data('task') == 'report')
+      {
+        $("#editor-model").find(".modal-title").text("Report Once");
+        $("#editor").html( GLOBALS.defaultPostHtml.report );
+        editorInit();
+        $("#editor-model").modal();
+      }
+      else if( $(this).data('task') == "experience" )
+      {
+        $("#editor-model").find(".modal-title").text("I Experienced");
+        $("#editor").html(GLOBALS.defaultPostHtml.experience );
+        editorInit();
+        $("#editor-model").modal();
+      }
+        // window.location = $(this).data('href');
     });
 
+/*===============================================
+=            contact form submission            =
+===============================================*/
 
 
+$("#contactForm").validate({
+  errorClass: "red-focus",
+  submitHandler : function(){
 
+      var form_data = $("#contactForm").serializeArray();
+      
+      $("#btn-sbmt").html("SENDING..");
+      $(".fa-elm").attr("disabled","true");
+      
+      $.post("/",form_data)
+      .done(function(response){
+        if (response.status == 1) {
+          alert( response.message );
+          // console.log(response.message);  
+        }
+        else{
+          console.error(response.errors);
+        }
+        
+        $("#btn-sbmt").html("SEND MESSAGE");
+        $(".fa-elm").removeAttr("disabled");
+      
+      })
+    return false;
+  }
+})
+
+$(".phone").validate({
+  rules: {
+      required: true,
+      number:true
+  }
 });
+
+// patch to adjust css of fa icon of a form-control in contactForm
+  $("#contactForm").find('.fa-elm').each( function( index, element ){
+      var d = "height:"+$(element).outerHeight() +"px!important"; 
+      $(element).parent().find('i').attr("style",d);
+  });
+
+/*================================================
+=            Quill and editor scripts            =
+================================================*/
+
+
+
+    // .destroy();
+  $("#location-button").click(function(){
+    $(this).toggleClass("ql-active");
+    if( $(this).hasClass("ql-active") )
+    {
+      setLocation();   
+    }else{
+      GLOBALS.allowLocation = false;
+    }
+  })
+  
+  $('#close-modal').click(function () {
+    console.log("sjdkh");
+      if( confirm("Content you writen will be destroyed. Are You sure ?? ")){
+        $("#editor-model").modal('hide');
+        // return true;
+      }
+      // return false;
+  });
+  
+  editorInit();  
+  console.log(GLOBALS);
+});
+
+function editorInit(){
+    editor = new Quill ( $('#editor').get(0),{
+      placeholder: 'Compose your thought...',
+      modules: {
+        'toolbar': '#snow-toolbar',
+      },
+      theme: 'snow'
+  });
+ 
+    editor.on('text-change', function(delta,h) {      
+      var htm =  $('#editor').find("ql-editor").html();
+      // console.log('contents', htm);
+  });
+}
+
+function setLocation(){
+  if (navigator.geolocation) {
+    $("#location-button").addClass("ql-active");
+     navigator.geolocation.getCurrentPosition(function(position){
+          GLOBALS.allowLocation = true;
+          GLOBALS.position = position;
+     });
+   }
+}
