@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
 ]
-SITE_ID = 2
+
 
 
 # auth and allauth settings

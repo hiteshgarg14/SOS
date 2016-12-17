@@ -9,6 +9,8 @@ DEBUG = True
 #To be updated
 ALLOWED_HOSTS = ['www.sosdemo.herokuapp.com', 'https://sosdemo.herokuapp.com/' , 'localhost' ]
 
+SITE_ID = 3
+
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
