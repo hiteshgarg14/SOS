@@ -4,12 +4,12 @@ import urlparse
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #To be updated
-ALLOWED_HOSTS = ['www.sosdemo.herokuapp.com', 'https://sosdemo.herokuapp.com/' , 'localhost' ]
+ALLOWED_HOSTS = ['*' ]
 
-SITE_ID = 4
+SITE_ID = 4	
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
