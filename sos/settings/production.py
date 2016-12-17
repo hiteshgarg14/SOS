@@ -4,7 +4,7 @@ import urlparse
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #To be updated
 ALLOWED_HOSTS = ['www.sosdemo.herokuapp.com', 'https://sosdemo.herokuapp.com/' , 'localhost' ]
