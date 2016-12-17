@@ -2,7 +2,7 @@ from common import *
 import psycopg2
 import urlparse
 
-
+"""
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
@@ -24,7 +24,7 @@ STATICFILES_DIRS = [STATIC_DIR,]
 
 STATIC_URL = '/collectstatic/'
 
-"""
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
