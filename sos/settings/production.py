@@ -7,7 +7,7 @@ import urlparse
 DEBUG = False
 
 #To be updated
-ALLOWED_HOSTS = ['*' ]
+ALLOWED_HOSTS = ['*']
 
 #heroku plugins:install https://github.com/naaman/heroku-vim
 #heroku vim
@@ -32,4 +32,5 @@ DATABASES = {
     }
 }
 
+#Reason:-Server Error(500)
 #STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
