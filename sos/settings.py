@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
 ]
-SITE_ID = 3
+SITE_ID = 2
 
 # auth and allauth settings
 LOGIN_REDIRECT_URL = '/'
@@ -124,7 +124,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sos',
         'USER': 'sosuser',
-        'PASSWORD': 'sos12345678',
+        'PASSWORD': 'sospassword',
         'HOST': 'localhost',
         'PORT': '',
     }
