@@ -27,7 +27,7 @@ STATIC_URL = '/collectstatic/'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #To be updated
 ALLOWED_HOSTS = ['*']
