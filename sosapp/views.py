@@ -1,10 +1,10 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.http import HttpResponseRedirect, HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .forms import NonUserContactForm
+from .forms import NonUserContactForm, ReportOnceForm, IExperienceForm
 
 
 def index( request ):
@@ -23,3 +23,25 @@ def contactUsSaveService( request ):
 def logout( request ):
 	auth.logout(request)
 	return HttpResponseRedirect('/')
+
+@login_required
+def report_once(request):
+    r_form = ReportOnceForm(request.POST or None)
+    if r_form.is_valid():
+        tmp = r_form.save(commit=False)
+        tmp.r_user = request.user
+        r_form.save()
+        # Imporvement Needed!
+        return redirect('sos:index')
+    return render(request,'sosapp/report_once.html',{'form':r_form})
+
+@login_required
+def i_experienced(request):
+    i_form = IExperienceForm(request.POST or None)
+    if i_form.is_valid():
+        tmp = i_form.save(commit=False)
+        tmp.i_user = request.user 
+        i_form.save()
+        # Imporvement Needed!
+        return redirect('sos:index') 
+    return render(request,'sosapp/i_experienced.html',{'form':i_form})     

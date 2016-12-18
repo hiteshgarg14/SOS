@@ -63,6 +63,7 @@
 	<link href="//cdn.quilljs.com/1.1.7/quill.snow.css" rel="stylesheet">
 	
 
+
 </head>
 <body>
 	<!-- Pre Loader -->
@@ -257,14 +258,28 @@
 						  	<button data-href="/your-help.html" class="navigate-me the-white-circle fa fa-4 fa-lightbulb-o "></button>
 						  	<p class="the-bottom-text">Your Help</p>
 						  </div>
+						  {% if request.user.is_authenticated %}
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  <!--
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
+						  -->
+						  	<a href="{% url 'sos:report_once' %}" class="navigate-me the-white-circle fa fa-4 fa-pencil"></a>
+						  	<p class="the-bottom-text">Report Once</p>
+
 						  </div>
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  <!--
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
+						  	-->
+						  	<a href="{% url 'sos:i_experienced' %}" class="navigate-me the-white-circle fa fa-4 fa-quote-left "></a>
+						  	<p class="the-bottom-text">I Experienced</p>
+
 						  </div>
+						  {% else %}
+						  Please Login For More Options!
+						  {% endif %}
 						</div>
 		       	</div>
 	       </div>
