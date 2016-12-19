@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<title>Test</title>
+	<!--Tinymce Text-Editor (Must be in Head Tag) -->
+  <script src="{% static 'sosapp/assets/js/tinymce/tinymce.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'sosapp/assets/js/tinymce/custom.js' %}" ></script>
+  <!-- selector:textarea-tinymce -->
+</head>
+<body>
+<form action=""  method="post" >
+	
+	{% csrf_token %}
+
+<tr>
+  <th><label for="id_i_details">Share Your Experience</label></th>
+  <td>
+    <textarea class="tinymce" cols="40" data-mce-conf="{&quot;relative_urls&quot;: false, &quot;spellchecker_languages&quot;: &quot;Afrikaans=af,Arabic=ar,Asturian=as,Azerbaijani=az,Bulgarian=bg,Belarusian=be,Bengali=bn,Breton=br,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English / Australian English / British English=en,Esperanto=eo,Spanish / Argentinian Spanish / Colombian Spanish / Mexican Spanish / Nicaraguan Spanish / Venezuelan Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Scottish Gaelic=gd,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Interlingua=ia,Indonesian=id,Ido=io,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Kazakh=kk,Khmer=km,Kannada=kn,Korean=ko,Luxembourgish=lb,Lithuanian=lt,Latvian=lv,Macedonian=mk,Malayalam=ml,Mongolian=mn,Marathi=mr,Burmese=my,Norwegian Bokmal=nb,Nepali=ne,Dutch=nl,Norwegian Nynorsk=nn,Ossetic=os,Punjabi=pa,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Swahili=sw,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Tatar=tt,Udmurt=ud,Ukrainian=uk,Urdu=ur,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh&quot;, &quot;theme&quot;: &quot;simple&quot;, &quot;strict_loading_mode&quot;: 1, &quot;mode&quot;: &quot;exact&quot;, &quot;language&quot;: &quot;en&quot;, &quot;elements&quot;: &quot;id_i_details&quot;, &quot;directionality&quot;: &quot;ltr&quot;}" id="id_i_details" name="i_details" rows="10">
+      
+  <p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
+  </p>
+  <h1 style="text-align: center;">Welcome to the TinyMCE & Community Plugins demo!</h1>
+  <h5 style="text-align: center;">Note, this is not an "enterprise/premium" demo.<br>Visit the <a href="https://www.tinymce.com/pricing/#demo-enterprise">pricing page</a> to demo our premium plugins.</h5>
+  <p>Please try out the features provided in this full featured example.</p>
+  <p>Note that any <b>MoxieManager</b> file and image management functionality in this example is part of our commercial offering – the demo is to show the integration.</h2>
+
+  <h2>Got questions or need help?</h2>
+  <ul>
+    <li>Our <a href="//www.tinymce.com/docs/">documentation</a> is a great resource for learning how to configure TinyMCE.</li>
+    <li>Have a specific question? Visit the <a href="http://community.tinymce.com/forum/">Community Forum</a>.</li>
+    <li>We also offer enterprise grade support as part of <a href="http://tinymce.com/pricing">TinyMCE Enterprise</a>.</li>
+  </ul>
+
+  <h2>A simple table to play with</h2>
+  <table style="text-align: center;">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Cost</th>
+        <th>Really?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>TinyMCE</td>
+        <td>Free</td>
+        <td>YES!</td>
+      </tr>
+      <tr>
+        <td>Plupload</td>
+        <td>Free</td>
+        <td>YES!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Found a bug?</h2>
+  <p>If you think you have found a bug please create an issue on the <a href="https://github.com/tinymce/tinymce/issues">GitHub repo</a> to report it to the developers.</p>
+
+  <h2>Finally ...</h2>
+  <p>Don't forget to check out our other product <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.</p>
+  <p>Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.</p>  
+
+
+
+  </textarea>
+  </td>
+  </tr>
+
+
+	<input type="submit" value="Submit" />
+</form>
+</body>
+</html>

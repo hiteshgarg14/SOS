@@ -16,8 +16,9 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
-TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+TEMPLATE_DIR = os.path.join(BASE_DIR, '../templates')
+#STATIC_DIR = os.path.join(BASE_DIR, '../static')
+#STATIC_ROOT = os.path.join(BASE_DIR, '../collectstatic')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -25,11 +26,9 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3wqkmk%z0_t94js&=lg6tohe4*x1lahzavkn+6$*)e25%0jm-o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
+TWILIO_ACCOUNT_SID = os.environ['SID']
+TWILIO_AUTH_TOKEN = os.environ['TOKEN']
+TWILIO_PHONE_NUMBER = os.environ['PHONE']
 
 # Application definition
 
@@ -48,8 +47,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     # ... include the providers you want to enable:
     'allauth.socialaccount.providers.facebook',
+    #Text-Editor
+    'tinymce',
 ]
-SITE_ID = 3
+
+
 
 # auth and allauth settings
 LOGIN_REDIRECT_URL = '/'
@@ -94,7 +96,7 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend"
 )
 
-STATICFILES_DIRS = [STATIC_DIR, ]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -114,21 +116,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'sos.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sos',
-        'USER': 'sosuser',
-        'PASSWORD': 'sos12345678',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
-}
 
 
 # Password validation
@@ -167,5 +154,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/collectstatic/'
 MEDIA_URL = '/media/'

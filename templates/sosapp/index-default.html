@@ -35,7 +35,7 @@
 
 
     <!-- Added google font -->
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:700%20Open+Sans:400italic,700,600,800,400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans:700%20Open+Sans:400italic,700,600,800,400' rel='stylesheet' type='text/css'>
 
     <!--Fav and touch icons-->
     <link rel="shortcut icon" href="{% static 'sosapp/images/icons/favicon.ico' %}">
@@ -62,6 +62,7 @@
 	<!-- Theme included stylesheets -->
 	<link href="//cdn.quilljs.com/1.1.7/quill.snow.css" rel="stylesheet">
 	
+
 
 </head>
 <body>
@@ -236,7 +237,7 @@
 	   			<div class="col-sm-6">
 	   			    <div class="video-block wow animated fadeInUp">
 	   			    	<img class="img-responsive" src="{% static 'sosapp/images/gallery/gallery_image_04.jpg' %}" alt="about us">
-	   			    	<a href="http://vimeo.com/45830194" class="glyphicon glyphicon-play play-2"></a>
+	   			    	<a href="https://vimeo.com/45830194" class="glyphicon glyphicon-play play-2"></a>
 	   			    </div>
 	   			    <!-- /.video-block end -->
 	   			    <p class="video-text">In November 2014, we arranged a very successful street protest for two days to rasie the voice of women around the world for protecting their social, cultural, economic and political rights and freedom.</p>
@@ -257,14 +258,28 @@
 						  	<button data-href="/your-help.html" class="navigate-me the-white-circle fa fa-4 fa-lightbulb-o "></button>
 						  	<p class="the-bottom-text">Your Help</p>
 						  </div>
+						  {% if request.user.is_authenticated %}
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  <!--
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
+						  -->
+						  	<a href="{% url 'sos:report_once' %}" class="navigate-me the-white-circle fa fa-4 fa-pencil"></a>
+						  	<p class="the-bottom-text">Report Once</p>
+
 						  </div>
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
+						  <!--
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
+						  	-->
+						  	<a href="{% url 'sos:i_experienced' %}" class="navigate-me the-white-circle fa fa-4 fa-quote-left "></a>
+						  	<p class="the-bottom-text">I Experienced</p>
+
 						  </div>
+						  {% else %}
+						  Please Login For More Options!
+						  {% endif %}
 						</div>
 		       	</div>
 	       </div>
@@ -992,7 +1007,7 @@
        	   <div class="container">
 	   	    	<div class="row">
 	   	    		<div class="col-sm-12 text-center wow fadeInDown">
-	   	    			<a href="http://vimeo.com/45830194" class="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
+	   	    			<a href="https://vimeo.com/45830194" class="play"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>
 	   	    		</div>
 	   	    	</div>
 	   	    </div>

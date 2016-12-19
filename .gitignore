@@ -59,4 +59,5 @@ docs/_build/
 db.sqlite3
 
 #virualenv
-sos/
+sosapp/migrations/
+collectstatic/

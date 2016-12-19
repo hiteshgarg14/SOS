@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.core.validators import RegexValidator
+from tinymce.models import HTMLField
+from django.contrib.auth.models import User
 
 
 class NonUserContactModel(models.Model):
@@ -13,3 +15,18 @@ class NonUserContactModel(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class ReportOnceModel(models.Model):
+	r_user = models.ForeignKey(User)
+	r_details = HTMLField()
+
+	def __str__(self):
+		return self.r_user.email
+
+class IExperienceModel(models.Model):
+	i_user = models.ForeignKey(User)
+	i_details = HTMLField()
+
+	def __str__(self):
+		return self.i_user.email		
