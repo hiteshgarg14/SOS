@@ -26,8 +26,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, '../templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '3wqkmk%z0_t94js&=lg6tohe4*x1lahzavkn+6$*)e25%0jm-o'
 
-
-
+TWILIO_ACCOUNT_SID = os.environ['SID']
+TWILIO_AUTH_TOKEN = os.environ['TOKEN']
+TWILIO_PHONE_NUMBER = os.environ['PHONE']
 
 # Application definition
 

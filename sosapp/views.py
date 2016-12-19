@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import NonUserContactForm, ReportOnceForm, IExperienceForm
-
+from utils import send_twilio_message
 
 def index( request ):
     if request.method == 'POST':
@@ -31,6 +31,9 @@ def report_once(request):
         tmp = r_form.save(commit=False)
         tmp.r_user = request.user
         r_form.save()
+        body = 'Hi {0}! Thanks For Your Story.'.format(request.user)
+        sent = send_twilio_message('+917597004257',body)
+        #print sent.sid
         # Imporvement Needed!
         return redirect('sos:index')
     return render(request,'sosapp/report_once.html',{'form':r_form})
@@ -42,6 +45,9 @@ def i_experienced(request):
         tmp = i_form.save(commit=False)
         tmp.i_user = request.user 
         i_form.save()
+        body = 'Hi {0}! Thanks For Your Story.'.format(request.user)
+        sent = send_twilio_message('+917597004257',body)
+        #print sent.sid
         # Imporvement Needed!
         return redirect('sos:index') 
     return render(request,'sosapp/i_experienced.html',{'form':i_form})     
