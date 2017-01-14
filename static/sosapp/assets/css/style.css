@@ -513,16 +513,16 @@ ul, li {
 	float: right;
 }
 
-.header-top .navigation-bar ul li:last-child {
+.header-top .navigation-bar ul li.donate {
 	margin-top: 18px;
 	margin-left: 13px;
 	display: none;
 	padding: 0;
 }
-.header-top .addbg .navigation-bar ul li:last-child {
+.header-top .addbg .navigation-bar ul li.donate {
 	display: block;
 }
-.header-top .navigation-bar ul li:last-child a {
+.header-top .navigation-bar ul li.donate a {
 	background: #f24b6a;
 	color: #fff;
 	padding: 10px 20px;
@@ -530,7 +530,7 @@ ul, li {
 	font-weight: 700;
 	border-bottom: 0;
 }
-.header-top .navigation-bar ul li:last-child a:hover {
+.header-top .navigation-bar ul li.donate a:hover {
 	background: #f24b6a;
 	color: #000;
 }

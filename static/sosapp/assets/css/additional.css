@@ -133,3 +133,8 @@ opacity: 0.8;
 #editor{
     height: 400px;
 }
+
+.profile-dropdown-li a{
+    background: white !important;
+    padding: 3px;
+}

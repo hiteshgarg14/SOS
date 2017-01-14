@@ -108,7 +108,15 @@
 						                    <li><a href="#members">MEMBERS</a></li>
 						                    <li><a href="#news">NEWS</a></li>
 						                    <li><a href="#map">Contact</a></li>
-						                    <li><a href="#">Donate<i class="fa fa-heart"></i></a></li>
+						                    <!-- <li class="donate"><a href="#">Donate<i class="fa fa-heart"></i></a></li> -->
+						  						{% if request.user.is_authenticated %}
+						                    <li class="donate dropdown"><a href="/profile/" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;username </a>
+												 	<ul class="dropdown-menu	">
+												      <li class="profile-dropdown-li"><a href="#">settings</a></li>
+												      <li class="profile-dropdown-li"><a href="#">logout</a></li>
+												    </ul>
+						                    </li>
+						                    {%endif%}
 						                  </ul>
 						                </div><!-- /.navbar-collapse -->
 						       		</div>
@@ -278,7 +286,7 @@
 
 						  </div>
 						  {% else %}
-						  Please Login For More Options!
+						  <p>Please Login For More Options!</p>
 						  {% endif %}
 						</div>
 		       	</div>
