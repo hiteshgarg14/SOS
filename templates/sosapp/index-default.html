@@ -112,8 +112,8 @@
 						  						{% if request.user.is_authenticated %}
 						                    <li class="donate dropdown"><a href="/profile/" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;username </a>
 												 	<ul class="dropdown-menu	">
-												      <li class="profile-dropdown-li"><a href="#">settings</a></li>
-												      <li class="profile-dropdown-li"><a href="#">logout</a></li>
+												      <li class="profile-dropdown-li"><a class="navigate-me" href="/profile/settings">settings</a></li>
+												      <li class="profile-dropdown-li"><a class="navigate-me" href="/logout">logout</a></li>
 												    </ul>
 						                    </li>
 						                    {%endif%}
@@ -263,7 +263,7 @@
 
 		       		    <div class="horizon-swiper">
 		       		     <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
-						  	<button data-href="/your-help.html" class="navigate-me the-white-circle fa fa-4 fa-lightbulb-o "></button>
+						  	<button data-href="/your-help.html" class=" the-white-circle fa fa-4 fa-lightbulb-o "></button>
 						  	<p class="the-bottom-text">Your Help</p>
 						  </div>
 						  {% if request.user.is_authenticated %}
@@ -272,7 +272,7 @@
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 						  -->
-						  	<a href="{% url 'sos:report_once' %}" class="navigate-me the-white-circle fa fa-4 fa-pencil"></a>
+						  	<button href="{% url 'sos:report_once' %}" data-task="report" class="open-editor the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 
 						  </div>
@@ -281,7 +281,7 @@
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 						  	-->
-						  	<a href="{% url 'sos:i_experienced' %}" class="navigate-me the-white-circle fa fa-4 fa-quote-left "></a>
+						  	<button href="{% url 'sos:i_experienced' %}" data-task="experience" class="open-editor the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 
 						  </div>

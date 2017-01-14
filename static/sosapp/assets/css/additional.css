@@ -134,7 +134,16 @@ opacity: 0.8;
     height: 400px;
 }
 
+.donate > ul{
+    padding: 0px;
+    border: 0px;
+    box-shadow: 0px 0px 5px rgba(50,50,50,0.5);
+}
 .profile-dropdown-li a{
     background: white !important;
-    padding: 3px;
+    color: #F5143D!important;
+    transition: all 0.5s;
+}
+.profile-dropdown-li a:hover{
+    background:#DEDEDE!important;
 }
