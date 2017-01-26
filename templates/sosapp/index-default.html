@@ -18,7 +18,7 @@
 	<link href="{% static 'sosapp/assets/css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- TimeCirlce style -->
-	<link rel="stylesheet" href="{% static 'sosapp/assets/css/TimeCircles.css' %}">
+	<link rel="stylesheet" href="{% static 'sosapp/assets/css/TimesCircles.css' %}">
 
     <!-- Magnific Popup style -->
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/magnific-popup.css' %}">
@@ -111,8 +111,8 @@
 						                    <!-- <li class="donate"><a href="#">Donate<i class="fa fa-heart"></i></a></li> -->
 						  						{% if request.user.is_authenticated %}
 						                    <li class="donate dropdown"><a href="/profile/" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;username </a>
-												 	<ul class="dropdown-menu	">
-												      <li class="profile-dropdown-li"><a class="navigate-me" href="/profile/settings">settings</a></li>
+												 	<ul class="dropdown-menu">
+												      <li class="profile-dropdown-li"><a class="navigate-me" href="/profile/">settings</a></li>
 												      <li class="profile-dropdown-li"><a class="navigate-me" href="/logout">logout</a></li>
 												    </ul>
 						                    </li>

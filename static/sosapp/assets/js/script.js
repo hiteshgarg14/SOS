@@ -381,6 +381,8 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
       window.location = $(this).attr('href');
     })
 
+
+
 /*===============================================
 =            contact form submission            =
 ===============================================*/
