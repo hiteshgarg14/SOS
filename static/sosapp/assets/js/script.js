@@ -360,8 +360,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 ==============================================*/
 
 
-    $('.navigate-me').on('click',function(){
-
+    $('.open-editor').on('click',function(){
       if( $(this).data('task') == 'report')
       {
         $("#editor-model").find(".modal-title").text("Report Once");
@@ -378,6 +377,11 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
       }
         // window.location = $(this).data('href');
     });
+    $(".navigate-me").on('click',function () {
+      window.location = $(this).attr('href');
+    })
+
+
 
 /*===============================================
 =            contact form submission            =
@@ -410,6 +414,9 @@ $("#contactForm").validate({
     return false;
   }
 })
+$("#btn-sbmt").on('click',function(){
+  console.log(GLOBALS);
+});
 
 $(".phone").validate({
   rules: {
@@ -442,7 +449,7 @@ $(".phone").validate({
   })
   
   $('#close-modal').click(function () {
-    console.log("sjdkh");
+    // console.log("sjdkh");
       if( confirm("Content you writen will be destroyed. Are You sure ?? ")){
         $("#editor-model").modal('hide');
         // return true;
@@ -451,7 +458,7 @@ $(".phone").validate({
   });
   
   editorInit();  
-  console.log(GLOBALS);
+  // console.log(GLOBALS);
 });
 
 function editorInit(){

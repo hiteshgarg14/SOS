@@ -18,7 +18,7 @@
 	<link href="{% static 'sosapp/assets/css/bootstrap.css' %}" rel="stylesheet">
 
     <!-- TimeCirlce style -->
-	<link rel="stylesheet" href="{% static 'sosapp/assets/css/TimeCircles.css' %}">
+	<link rel="stylesheet" href="{% static 'sosapp/assets/css/TimesCircles.css' %}">
 
     <!-- Magnific Popup style -->
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/magnific-popup.css' %}">
@@ -108,7 +108,15 @@
 						                    <li><a href="#members">MEMBERS</a></li>
 						                    <li><a href="#news">NEWS</a></li>
 						                    <li><a href="#map">Contact</a></li>
-						                    <li><a href="#">Donate<i class="fa fa-heart"></i></a></li>
+						                    <!-- <li class="donate"><a href="#">Donate<i class="fa fa-heart"></i></a></li> -->
+						  						{% if request.user.is_authenticated %}
+						                    <li class="donate dropdown"><a href="/profile/" data-toggle="dropdown"><i class="fa fa-user"></i>&nbsp;username </a>
+												 	<ul class="dropdown-menu">
+												      <li class="profile-dropdown-li"><a class="navigate-me" href="/profile/">settings</a></li>
+												      <li class="profile-dropdown-li"><a class="navigate-me" href="/logout">logout</a></li>
+												    </ul>
+						                    </li>
+						                    {%endif%}
 						                  </ul>
 						                </div><!-- /.navbar-collapse -->
 						       		</div>
@@ -255,7 +263,7 @@
 
 		       		    <div class="horizon-swiper">
 		       		     <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
-						  	<button data-href="/your-help.html" class="navigate-me the-white-circle fa fa-4 fa-lightbulb-o "></button>
+						  	<button data-href="/your-help.html" class=" the-white-circle fa fa-4 fa-lightbulb-o "></button>
 						  	<p class="the-bottom-text">Your Help</p>
 						  </div>
 						  {% if request.user.is_authenticated %}
@@ -264,7 +272,7 @@
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 						  -->
-						  	<a href="{% url 'sos:report_once' %}" class="navigate-me the-white-circle fa fa-4 fa-pencil"></a>
+						  	<button href="{% url 'sos:report_once' %}" data-task="report" class="open-editor the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 
 						  </div>
@@ -273,12 +281,12 @@
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 						  	-->
-						  	<a href="{% url 'sos:i_experienced' %}" class="navigate-me the-white-circle fa fa-4 fa-quote-left "></a>
+						  	<button href="{% url 'sos:i_experienced' %}" data-task="experience" class="open-editor the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 
 						  </div>
 						  {% else %}
-						  Please Login For More Options!
+						  <p>Please Login For More Options!</p>
 						  {% endif %}
 						</div>
 		       	</div>
@@ -597,7 +605,8 @@
 	   	   	<div class="row">
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="{% url 'https://goo.gl/nQsCD7' %}" alt="member image">
+	   	   				<img class="img-responsive" src="{% static 'https://goo.gl/nQsCD7' %}" alt="member image">
+
 	   	   				<span class="member-name">
 	   	   					Khushbu Parakh
 	   	   				</span><!-- /.member-name -->
@@ -623,7 +632,9 @@
 
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="{% url 'https://goo.gl/rDkm0h' %}" alt="member image">
+
+	   	   				<img class="img-responsive" src="{% static 'https://goo.gl/rDkm0h' %}" alt="member image">
+
 	   	   				<span class="member-name">
 	   	   					Jimish Fotariya
 	   	   				</span><!-- /.member-name -->
@@ -648,7 +659,9 @@
 	   	   		</div>
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.7s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="{% url '' %}" alt="member image">
+
+	   	   				<img class="img-responsive" src="{% static '' %}" alt="member image">
+
 	   	   				<span class="member-name">
 	   	   					Hitesh Garg
 	   	   				</span><!-- /.member-name -->
@@ -858,7 +871,8 @@
     			</div>
     			<div class="col-md-9">
     				<div class="partner-logo fade-green wow fadeInDown">
-    					<a href="#"><img src="{% url 'https://goo.gl/Nggafw' %}" alt="partner logo"></a>
+    					<a href="#"><img src="{% static 'https://goo.gl/Nggafw' %}" alt="partner logo"></a>
+
     				</div>
     			   <!-- 	<div class="partner-logo wow fadeInDown">
     					<a href="#"><img src="{% static 'sosapp/images/partner_logo_02.png' %}" alt="partner logo"></a>

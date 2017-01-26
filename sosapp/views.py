@@ -24,6 +24,13 @@ def logout( request ):
 	auth.logout(request)
 	return HttpResponseRedirect('/')
 
+
+@login_required
+def profile( request ):
+    # auth.logout(request)
+    return render(request,'sosapp/profile.html')
+    
+
 @login_required
 def report_once(request):
     r_form = ReportOnceForm(request.POST or None)
