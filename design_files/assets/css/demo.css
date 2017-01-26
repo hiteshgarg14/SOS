@@ -1,0 +1,86 @@
+
+
+
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	position: relative;
+    color: #fff;
+    background: url(../../images/banner.jpg) center center no-repeat fixed;  
+    -webkit-background-size: cover;
+       -moz-background-size: cover;
+        -ms-background-size: cover;
+         -o-background-size: cover;
+            background-size: cover;
+    margin:0;
+    padding: 0;
+}
+.overlay {
+	background: rgba(0,0,0,.5);
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+}
+.demo-page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.demo-page .demo-thumb img {
+	width: 100%;
+	height: 230px;
+	 -webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+          transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+.demo-page .demo-thumb:hover img {
+    -webkit-transform: scale(1.1);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: scale(1.1);  /* IE 9 */
+          transform: scale(1.1);  /* Firefox 16+, IE 10+, Opera */
+}
+.demo-page .demo-thumb h4 {
+	-webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+          transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */
+}
+.demo-page .demo-thumb:hover h4 {
+	font-size: 0px;
+	-webkit-transition: all 0.3s ease-out;  /* Android 2.1+, Chrome 1-25, iOS 3.2-6.1, Safari 3.2-6  */
+          transition: all 0.3s ease-out;  /* Chrome 26, Firefox 16+, iOS 7+, IE 10+, Opera, Safari 6.1+  */ 
+}
+
+.demo-page .row .row {
+    margin-bottom: 80px;
+}
+h1 {
+	font-size: 60px;
+	color: #f24b6a;
+}
+.sub-heading {
+    display: block;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.logo span {
+  -webkit-animation-duration: 3s;
+     -webkit-animation-delay: 2s;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-duration: 5s;
+       -moz-animation-delay: 5s;
+    -moz-animation-iteration-count: infinite;
+
+    -o-animation-duration: 8s;
+       -o-animation-delay: 8s;
+    -o-animation-iteration-count: infinite;
+
+    -ms-animation-duration: 11s;
+       -ms-animation-delay: 11s;
+    -ms-animation-iteration-count: infinite;
+    animation-duration: 14s;
+       animation-delay: 14s;
+    animation-iteration-count: infinite;
+}
+footer {
+	background: rgba(255,255,255, .5);
+	padding: 30px 0;
+}
