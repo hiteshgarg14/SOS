@@ -29,4 +29,23 @@ class IExperienceModel(models.Model):
 	i_details = HTMLField()
 
 	def __str__(self):
-		return self.i_user.email		
+		return self.i_user.email
+
+class ProfileModel(models.Model):
+	GENDER_CHOICES = (
+		('female','Female'),
+		('male','Male'),
+	)
+	user = models.OneToOneField(User)
+	gender = models.CharField(max_length=25, blank=True, choices=GENDER_CHOICES, default='male')
+	birthdate = models.DateField(blank=True, null=True)
+	mobile = models.CharField(max_length=12, blank=True)
+	address = models.CharField(max_length=500, blank=True)
+	p_title = models.CharField(max_length=150, blank=True)
+	p_company = models.CharField(max_length=150, blank=True)
+	p_city = models.CharField(max_length=150, blank=True)
+	p_time_from = models.DateField(blank=True, null=True)
+	p_time_to = models.DateField(blank=True, null=True)
+
+	def __str__(self):
+		return self.user.username
