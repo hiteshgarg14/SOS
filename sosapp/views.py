@@ -93,13 +93,8 @@ def i_experienced(request):
         sent = send_twilio_message('+917597004257',body)
         #print sent.sid
         # Imporvement Needed!
-<<<<<<< HEAD
         return redirect('sos:index') 
     return render(request,'sosapp/i_experienced.html',{'form':i_form})     
 
 def chatIndex(request):
     return render(request,'sosapp/firechat/index.html')     
-=======
-        return redirect('sos:index')
-    return render(request,'sosapp/i_experienced.html',{'form':i_form})
->>>>>>> master
