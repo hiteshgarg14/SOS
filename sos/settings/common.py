@@ -156,3 +156,5 @@ USE_TZ = True
 
 #STATIC_URL = '/collectstatic/'
 MEDIA_URL = '/media/'
+
+DATE_INPUT_FORMATS = ('%d-%m-%Y')

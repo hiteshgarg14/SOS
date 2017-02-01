@@ -38,7 +38,7 @@
   <!--  horizon slider -->
     <link rel="stylesheet" href="{% static 'sosapp/assets/horizon-swiper-dist/horizon-swiper.min.css' %}">
     <link rel="stylesheet" href="{% static 'sosapp/assets/horizon-swiper-dist/horizon-theme.min.css' %}">
-  
+
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/intlTelInput.css'  %}">
     <link rel="stylesheet" href="{% static 'sosapp/assets/css/additional.css' %}">
 
@@ -123,7 +123,6 @@
    <!-- header end -->
 
     <div class="form-container col-md-12">
-      <form id="myform">
     <div class="row">
                         <div  class="col-sm-12">
                             <div class="col-xs-3">
@@ -134,32 +133,40 @@
                                     <li><a href="#settings" data-toggle="tab">Settings</a></li>
                                 </ul>
                             </div>
+                      <form action="." method="post">
+                        {% csrf_token %}
                             <div class="col-xs-9">
+
                                 <!-- Tab panes -->
                                 <div class="tab-content hide-me-initially">
                                     <div class="tab-pane active" id="overview">
                                         <div class="form-group row">
-                                            <label for="usr" class="col-sm-3 tab-align-middle">Name</label>   
+                                            <label for="id_first_name" class="col-sm-3 tab-align-middle">Name</label>
                                             <div class="col-sm-3">
-                                              <input type="text" placeholder="First Name" class="form-control fix-tab" id="usrf"  name="first_name" >
-                                            </div>     
+                                              <input  placeholder="First Name"  class="form-control fix-tab" id="id_first_name" {{ u_overform.first_name }}
+                                            </div>
                                             <div class="col-sm-3">
-                                              <input type="text" placeholder="Last Name" class="form-control fix-tab" id="usrl"  name="last_name" >
-                                            </div>     
+                                              <input  placeholder="Last Name" class="form-control fix-tab"  id="id_last_name" {{ u_overform.last_name }}
+                                            </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for = "gender" class="col-sm-3 tab-align-middle">Gender</label>
-                                            <div class="col-sm-6">        
-                                              <select id="gender" name="gender" class="form-control fix-tab">
-                                                <option selected="">Female</option>
-                                                <option>Male</option>
+                                            <label for = "id_gender" class="col-sm-3 tab-align-middle">Gender</label>
+                                            <div class="col-sm-6">
+                                              <!--
+                                              <select id="id_gender" name="gender" class="form-control fix-tab">
+                                                <option value="female" selected="selected">Female</option>
+                                                <option value="male">Male</option>
+
                                               </select>
+                                            -->
+                                              {{ p_overform.gender }}
                                             </div>
                                           </div>
+
                                           <div class="form-group row">
-                                            <label for="bdate" class="col-sm-3 tab-align-middle">Birthdate</label>
-                                            <div class="col-sm-6">        
-                                              <input  type="date" id="bdate" name="bdate" class="form-control fix-tab" /  >
+                                            <label for="id_birthdate" class="col-sm-3 tab-align-middle">Birthdate</label>
+                                            <div class="col-sm-6">
+                                              <input id="id_birthdate" placeholder="YYYY-MM-DD" class="form-control fix-tab" {{ p_overform.birthdate }}
                                             </div>
                                           </div>
                                         <div class="form-group col-xs-offset-3 row ">
@@ -167,23 +174,25 @@
                                           <button type="submit" class="btn default-btn">SAVE</button>
                                         </div>
                                     </div>
+
+
                                     <div class="tab-pane" id="contact">
-                                      <div class="form-group row">         
-                                          <label for="tel" class="col-sm-3 tab-align-middle">Mobile </label>   
+                                      <div class="form-group row">
+                                          <label for="tel" class="col-sm-3 tab-align-middle">Mobile </label>
                                           <div class="col-sm-6">
-                                            <input id="phone" placeholder="Mobile" type="tel" name="phone" class="form-control"> 
+                                            <input id="phone" placeholder="Mobile"  class="form-control" {{ p_contactform.mobile }}
                                           </div>
                                       </div>
-                                      <div class="form-group row">         
-                                          <label for="mail" class="col-sm-3 tab-align-middle">Email </label>   
+                                      <div class="form-group row">
+                                          <label for="mail" class="col-sm-3 tab-align-middle">Email </label>
                                           <div class="col-sm-4">
-                                            <input type="email" class="form-control fix-tab" placeholder="Email" id="mail" name="mail">
+                                            <input class="form-control fix-tab" placeholder="Email" id="mail" {{ u_contactform.email }}
                                           </div>
                                         </div>
                                           <div class="form-group row">
                                             <label for="txtPlaces" class="col-sm-3 tab-align-middle fix-tab">Address:</label>
                                             <div class="col-sm-6">
-                                              <input type="text" id="txtPlaces" class="form-control fix-tab" placeholder="Enter a location" />
+                                              <input type="text" id="txtPlaces" name="address" class="form-control fix-tab" placeholder="Enter a location" {{ p_contactform.address }}
                                             </div>
                                         </div>
                                         <div class="form-group col-xs-offset-3 row ">
@@ -191,32 +200,33 @@
                                           <button type="submit" class="btn default-btn">SAVE</button>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane" id="professional">
-                                      <div class="form-group row">         
-                                          <label for="job_title" class="col-sm-3 tab-align-middle">Title </label>   
+                                      <div class="form-group row">
+                                          <label for="job_title" class="col-sm-3 tab-align-middle">Title </label>
                                           <div class="col-sm-6">
-                                            <input id="job_title" placeholder="Your Designation" type="text" name="job_title" class="form-control fix-tab"> 
+                                            <input id="job_title" placeholder="Your Designation"  class="form-control fix-tab" {{p_pform.p_title}}
                                           </div>
                                         </div>
-                                        <div class="form-group row">         
-                                          <label for="company" class="col-sm-3 tab-align-middle">Company </label>   
+                                        <div class="form-group row">
+                                          <label for="company" class="col-sm-3 tab-align-middle">Company </label>
                                           <div class="col-sm-6">
-                                            <input id="company" placeholder="Current Company" type="text" name="company" class="form-control fix-tab"> 
+                                            <input id="company" placeholder="Current Company" class="form-control fix-tab" {{ p_pform.p_company }}
                                           </div>
                                         </div>
-                                        <div class="form-group row">         
-                                          <label for="city" class="col-sm-3 tab-align-middle">City </label>   
+                                        <div class="form-group row">
+                                          <label for="city" class="col-sm-3 tab-align-middle">City </label>
                                           <div class="col-sm-6">
-                                            <input id="city" placeholder="City of work" type="text" name="working_city" class="form-control fix-tab"> 
+                                            <input id="city" placeholder="City of work" class="form-control fix-tab" {{ p_pform.p_city }}
                                           </div>
                                         </div>
 
-                                        <div class="form-group row">         
-                                          <label for="time_period" class="col-sm-3 tab-align-middle">Time period</label>   
+                                        <div class="form-group row">
+                                          <label for="time_period" class="col-sm-3 tab-align-middle">Time period</label>
                                             <div class="row">
                                               <label class="col-xs-1 tab-align-middle">From</label>
                                               <div class="form-group col-xs-2">
-                                                <select class="form-control fix-tab month_sel" name="from_month"></select> 
+                                                <select class="form-control fix-tab month_sel" name="from_month"></select>
                                               </div>
                                               <div class="form-group col-xs-2">
                                                 <input type="number" value="2016" class="form-control" name="from_year"/>
@@ -225,17 +235,17 @@
                                             
                                             <label class=" col-xs-offset-3 col-xs-1 tab-align-middle">To</label>
                                               <div class="form-group col-xs-2">
-                                                <select class="form-control fix-tab month_sel" name="to_month"></select> 
+                                                <select class="form-control fix-tab month_sel" name="to_month"></select>
                                               </div>
                                               <div class="form-group col-xs-2">
-                                                <input type="number" value="2016" class="form-control" name="to_year"/>    
+                                                <input type="number" value="2016" class="form-control" name="to_year"/>
                                             </div>
                                         </div>
                                           <div class="form-group col-xs-offset-3  row">
                                             <i class="fa fa-paper-plane" style="height:46px!important"></i>
                                           <button type="submit" class="btn default-btn">SAVE</button>
                                         </div>
-                                    
+                              </form>
                                     </div>
                                     <div class="tab-pane" id="settings">Settings Tab. <br> Settings like stories visible to, Donation Info  <br><hr>
                                         <div class="form-group col-xs-offset-3 row ">
@@ -248,7 +258,6 @@
                             <div class="clearfix"></div>
                         </div>
                   </div>
-               </form>
    	</div>
 	</section>
 
@@ -290,21 +299,21 @@
 
             $(this).tab('show');
               var scrollmem = $('body').scrollTop() || $('html').scrollTop();
-              
+
               window.location.hash =this.hash;
 
               // window.location = window.location+="#".this.hash;
               // conform before leave if change has been done
-              
+
               $('html,body').scrollTop(scrollmem);
           });
-          
+
 
           // generate month
           var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
           $.each(months, function (index, value) {
               $('.month_sel').append($('<option />').val(index).html(value));
-          });                
+          });
 
           $("#myform").validate({
             errorClass: "red-focus-ui",
@@ -378,6 +387,6 @@
                 });
             });
       </script>
-  
+
   </body>
 </html>
