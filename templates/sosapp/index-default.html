@@ -61,7 +61,7 @@
 
 	<!-- Theme included stylesheets -->
 	<link href="//cdn.quilljs.com/1.1.7/quill.snow.css" rel="stylesheet">
-	
+
 
 
 </head>
@@ -451,7 +451,7 @@
 	       						    <div class="countdown1"></div>
 	       						</div>
 	       					</div>
-	       				</div> 
+	       				</div>
 
 	       				<div class="event-body">
    							<div class="event-time">
@@ -464,8 +464,8 @@
    								<a href="#" class="event-place"><i class="fa fa-map-marker"></i> Times square, Newyork</a>
    							</div>
 	       				</div>
-	       			</div> 
-	       		</div> 
+	       			</div>
+	       		</div>
 
 	       		<div class="col-md-4">
 	       			<div class="event-block wow animated fadeInUp" data-wow-delay="0.6s" data-wow-duration="1s">
@@ -492,10 +492,10 @@
 	       			</div><!-- /.event-block -->
 	       		</div>
 
-	       		
+
 	       		<div class="col-sm-12 text-center">
 	       			<a href="#" class="btn default-btn btn-trans">MORE EVENTS</a>
-	       		</div> 
+	       		</div>
 	       	</div>
        </div>
    </section>
@@ -605,7 +605,7 @@
 	   	   	<div class="row">
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.3s" data-wow-duration="1s">
-	   	   				<img class="img-responsive" src="{% static 'https://goo.gl/nQsCD7' %}" alt="member image">
+	   	   				<img class="img-responsive" src="https://goo.gl/nQsCD7'" alt="member image">
 
 	   	   				<span class="member-name">
 	   	   					Khushbu Parakh
@@ -633,7 +633,7 @@
 	   	   		<div class="col-md-3 col-sm-6">
 	   	   			<div class="member-block wow animated fadeInUp" data-wow-delay="0.5s" data-wow-duration="1s">
 
-	   	   				<img class="img-responsive" src="{% static 'https://goo.gl/rDkm0h' %}" alt="member image">
+	   	   				<img class="img-responsive" src="https://goo.gl/rDkm0h" alt="member image">
 
 	   	   				<span class="member-name">
 	   	   					Jimish Fotariya
@@ -648,7 +648,7 @@
 		   	   				<span class="member-designation">
 		   	   					Activist
 		   	   				</span><!-- /.member-designation -->
-		   	   				<p>Jimish is a men activist based in French. She is currently studying econmomic as a major.</p>
+		   	   				<p>Jimish is a men activist based in French. <HEAD></HEAD>e is currently studying econmomic as a major.</p>
 		   	   				<ul class="social-icon pull-left">
 	       	    				<li><a href="www.facebook.com/JimishFotariya"><i class="fa fa-facebook"></i></a></li>
 	       	    				<li><a href="www.twitter.com/JimishFotariya"><i class="fa fa-twitter"></i></a></li>
@@ -675,7 +675,7 @@
 		   	   				<span class="member-designation">
 		   	   					Feminist
 		   	   				</span><!-- /.member-designation -->
-		   	   				<p>Hitesh is a men activist based in French. She is currently studying econmomic as a major.</p>
+		   	   				<p>Hitesh is a men activist based in French. He is currently studying econmomic as a major.</p>
 		   	   				<ul class="social-icon pull-left">
 	       	    				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
 	       	    				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -1054,13 +1054,13 @@
        <!-- /.container -->
    </section>
    <!-- contact end -->
-
+{% if not request.user.is_authenticated %}
    <!-- map start -->
    <div id="map" class="map">
 
    </div>
    <!-- map end -->
-{% if not request.user.is_authenticated %}
+
    <!-- contact-form start -->
    <div id="contact-form" class="contact-form" style="margin-top: -300px;">
    	    <div class="container">
