@@ -58,3 +58,6 @@ def i_experienced(request):
         # Imporvement Needed!
         return redirect('sos:index') 
     return render(request,'sosapp/i_experienced.html',{'form':i_form})     
+
+def chatIndex(request):
+    return render(request,'sosapp/firechat/index.html')     

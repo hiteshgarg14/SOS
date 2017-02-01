@@ -1,0 +1,1 @@
+/media/jimish/Jimish/today/k/sos/sos/settings_disabled.py

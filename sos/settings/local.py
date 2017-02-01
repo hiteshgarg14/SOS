@@ -18,7 +18,7 @@ MEDIA_URL = '/media/'
 
 ALLOWED_HOSTS = []
 
-SITE_ID = 2
+SITE_ID = 3
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
@@ -29,6 +29,6 @@ DATABASES = {
         'USER': 'sosuser',
         'PASSWORD': 'sospassword',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
