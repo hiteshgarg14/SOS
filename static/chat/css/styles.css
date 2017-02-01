@@ -38,15 +38,18 @@ header {
   min-height: 150px;
   width: 100%;
   color: white;
-  background-color: #ff8b00;
+  background-color: #f24b6a;
+  /*background-color: #ff8b00;*/
 }
 
 .header-title {
-  background-color: #d7690d;
+  /*background-color: #d7690d;*/
+  background-color: #F5143D;
 }
 
 .header-content {
-  background-color: #ff8b00;
+  /*background-color: #ff8b00;*/
+  background-color: #f24b6a;
 }
 
 .header-links {
@@ -87,7 +90,7 @@ header {
   width: 100%;
   bottom: 0;
   height: 60px;
-  background: url('../images/top-shadow.png') no-repeat center;
+  /*background: url('../images/top-shadow.png') no-repeat center;*/
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
@@ -277,7 +280,7 @@ footer {
   font-weight: 100;
 }
 
-#home-download-on-github {
+#doc-ask {
   font-size: 24px;
   padding: 25px 55px 19px;
   margin: -40px auto 35px;

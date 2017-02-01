@@ -1,5 +1,7 @@
 <!doctype html>
 {% load staticfiles %}
+{% load socialaccount %}
+
 <html>
 
 <head>
@@ -19,13 +21,19 @@
 
   <link rel="stylesheet" href="{% static 'chat/css/pygments-borland.css' %}" />
   <link rel="stylesheet" href="{% static 'chat/css/styles.css'%}" />
-  <link href="{% static 'chat//images/favicon.ico'%}" rel="shortcut icon" />
+  
+  <!--Fav and touch icons-->
+  <link rel="shortcut icon" href="{% static 'sosapp/images/icons/favicon.ico' %}">
+  <link rel="apple-touch-icon" href="{% static 'sosapp/images/icons/apple-touch-icon.png' %}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{% static 'sosapp/images/icons/apple-touch-icon-72x72.png' %}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{% static 'sosapp/images/icons/apple-touch-icon-114x114.png' %}">
+
 </head>
 
 <body class="home-page">
-  <a href="https://github.com/firebase/firechat" target="_blank">
+ <!--  <a href="https://github.com/firebase/firechat" target="_blank">
     <img class="fork-on-github" src="{% static 'chat/images/fork-on-github-white.png' %}" alt="Fork me on GitHub">
-  </a>
+  </a> -->
 
   <header id="top-content">
     <div class="header-title">
@@ -33,10 +41,14 @@
       <div class="container text-center">
         <div class="header-links" class="text-right">
           <a href="#" class="selected">Home</a>
-          <a href="./docs/">Documentation</a>
+          <!-- <a href="./docs/">Documentation</a> -->
+        {% if request.user.is_authenticated %}
+          <a href="/profile/">Profile</a>
+          <a href="/logout/">Logout</a>
+        {%endif%}
         </div>
-        <div id="home-title"><span class="strong">Fire</span><span class="satisfy">chat</span></div>
-        <div id="home-subtitle">Open-source real-time chat, built on Firebase</div>
+        <div id="home-title"><span class="strong">SOS</span><span class="satisfy">chat</span></div>
+        <div id="home-subtitle">Ask anytime, Always here to help.</div>
       </div>
     </div>
 
@@ -44,8 +56,8 @@
       <div class="container text-center">
         <div class="row">
           <div class="span12">
-            <a href="https://github.com/firebase/firechat" target="_blank">
-              <button id="home-download-on-github" class="btn btn-large" type="button"><span class="satisfy">Download on GitHub</span></button>
+            <a href="#" target="_blank">
+              <button id="doc-ask" class="btn btn-large" type="button"><span class="satisfy">Connect to Doctor</span></button>
             </a>
           </div>
         </div>
@@ -83,7 +95,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="span12">
           <div class="bottom-title">Real-time chat with no server code.</div>
           <div class="bottom-content">
@@ -142,7 +154,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
   <footer class="footer">
@@ -197,6 +209,15 @@
         storageBucket: "sosysters.appspot.com",
         messagingSenderId: "529694633403"
     };
+    firebase.initializeApp(config);
+
+    //  var config = {
+    //   apiKey: "AIzaSyBMzeQaeLgjjJJtSMqE3Rw8qjOU6BFibc8",
+    //   authDomain: "sosapp-1485421137567.firebaseapp.com",
+    //   databaseURL: "https://sosapp-1485421137567.firebaseio.com",
+    //   storageBucket: "sosapp-1485421137567.appspot.com",
+    //   messagingSenderId: "728118084084"
+    // };
     firebase.initializeApp(config);
 
     // Get a reference to the Firebase Realtime Database
@@ -269,6 +290,7 @@
     _gaq.push(['_setAccount', 'UA-37102688-1']);
     _gaq.push(['_trackPageview']);
 
+// https://sosapp-1485421137567.firebaseapp.com/__/auth/handler
     (function() {
       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
