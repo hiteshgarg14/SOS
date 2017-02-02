@@ -1,1 +1,0 @@
-/media/jimish/Jimish/today/k/sos/sos/urls.py
