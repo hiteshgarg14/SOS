@@ -1,0 +1,7 @@
+source sos/bin/activate
+export SID='AC95be707d79e846fa40c0a771ade549a7'
+export TOKEN='e1d795e0afb0ceda4a430ee37e897e60'
+export PHONE='+19518247354'
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
