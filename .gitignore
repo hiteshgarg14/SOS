@@ -61,6 +61,3 @@ db.sqlite3
 #virualenv
 sosapp/migrations/
 collectstatic/
-
-#vev
-sos/
