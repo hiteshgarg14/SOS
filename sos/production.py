@@ -2,32 +2,9 @@ from common import *
 import psycopg2
 import urlparse
 
-"""
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
-
-# Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
-)
-
-"""
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-#TEMPLATE_DIR = os.path.join(BASE_DIR, '../templates')
-STATIC_DIR = os.path.join(BASE_DIR, '../static')
-STATIC_ROOT = os.path.join(BASE_DIR, '../collectstatic')
-
-STATICFILES_DIRS = [STATIC_DIR,]
-
-
-STATIC_URL = '/collectstatic/'
-
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #To be updated
 ALLOWED_HOSTS = ['*']
