@@ -208,7 +208,7 @@
 				   				<h4>EDUCATION</h4>
 				   				<p>Education helps women to make them empower in our society.</p>
 				   				<div class="caption-btn green">
-				   					<a href="blog-single.html" class="btn default-btn light-yellow">learn more</a>
+				   					<a href="{% url 'sos:education' %}" class="btn default-btn light-yellow">learn more</a>
 				   				</div>
 				   				<!-- /.caption-btn end -->
 			   			    </div>
@@ -272,18 +272,20 @@
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 						  -->
-						  	<button href="{% url 'sos:report_once' %}" data-task="report" class="open-editor the-white-circle fa fa-4 fa-pencil"></button>
+						  <a href="{% url 'sos:report_once' %}">
+						  	<button class="the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
-
+						</a>
 						  </div>
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
 						  <!--
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 						  	-->
-						  	<button href="{% url 'sos:i_experienced' %}" data-task="experience" class="open-editor the-white-circle fa fa-4 fa-quote-left "></button>
+							<a href="{% url 'sos:i_experienced' %}">
+						  	<button  class="the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
-
+						</a>
 						  </div>
 						  {% else %}
 						  <p>Please Login For More Options!</p>

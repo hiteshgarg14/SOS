@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^chat/$', views.chatIndex, name='chatIndex'),
     url(r'^profile/$', views.profile, name='profile'),
     url(r'^report_once/$',views.report_once, name='report_once'),
-    url(r'^i_experienced/$', views.i_experienced, name='i_experienced')
+    url(r'^i_experienced/$', views.i_experienced, name='i_experienced'),
+    url(r'^eduction/$',views.education,name='education'),
 ]
