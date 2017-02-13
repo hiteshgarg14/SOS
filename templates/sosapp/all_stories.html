@@ -8,10 +8,12 @@
 <body>
 {% for item in stories %}
 	TITLE:-
-	<a href={% url 'sos:story' id=item.id %}>{{ item.title }}</a><br /><br />
+	<a href="{% url 'sos:story' id=item.id %}">{{ item.title }}</a><br /><br />
 	BODY:-
 	{{ item.details| markdown | truncatewords_html:30 }}
-	<hr /><hr />
+	<hr />
+	<a href="{% url 'sos:story' id=item.id %}">Read Full</a>
+	<hr />
 {% endfor %}
 
 
