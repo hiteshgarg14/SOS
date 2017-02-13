@@ -19,17 +19,27 @@ class NonUserContactModel(models.Model):
 
 class ReportOnceModel(models.Model):
 	r_user = models.ForeignKey(User)
-	r_details = HTMLField()
+	title = models.CharField(max_length=250,blank=False)
+	details = HTMLField()
+	r_created = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		ordering = ('-r_created',)
 
 	def __str__(self):
-		return self.r_user.email
+		return self.r_title
 
 class IExperienceModel(models.Model):
 	i_user = models.ForeignKey(User)
-	i_details = HTMLField()
+	title = models.CharField(max_length=250,blank=False)
+	details = HTMLField()
+	i_created = models.DateTimeField(auto_now_add=True)
+
+	class Meta:
+		ordering = ('-i_created',)
 
 	def __str__(self):
-		return self.i_user.email
+		return self.i_title
 
 class ProfileModel(models.Model):
 	GENDER_CHOICES = (

@@ -9,6 +9,8 @@ from .forms import NonUserContactForm, ReportOnceForm, IExperienceForm, ProfileO
 from utils import send_twilio_message
 from .models import ProfileModel
 from django.core.urlresolvers import reverse
+from .models import ReportOnceModel, IExperienceModel
+from django.shortcuts import get_object_or_404
 
 def index( request ):
     if request.method == 'POST':
@@ -101,3 +103,21 @@ def chatIndex(request):
 
 def education(request):
     return render(request, 'sosapp/blog-single.html')
+
+@login_required
+def exp_stories(request):
+    exp_stories = IExperienceModel.objects.all()
+    return render(request,'sosapp/all_stories.html',{'stories':exp_stories})
+
+@login_required
+def rep_stories(request):
+    rep_stories = ReportOnceModel.objects.all()
+    return render(request,'sosapp/all_stories.html',{'stories':rep_stories})
+
+@login_required
+def story(request,id):
+    try:
+        story = get_object_or_404(IExperienceModel, id=id)
+    except:
+        story = get_object_or_404(ReportOnceModel, id=id)
+    return render(request,'sosapp/story.html',{'story':story})

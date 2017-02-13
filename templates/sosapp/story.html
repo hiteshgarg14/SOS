@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load sos_tags %}
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	TITLE:-
+	{{ story.title }}<br /><br />
+	<hr /><hr />
+	BODY:-
+	{{ story.details| markdown }}
+
+
+
+</body>
+</html>
