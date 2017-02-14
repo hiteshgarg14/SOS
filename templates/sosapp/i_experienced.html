@@ -10,14 +10,21 @@
 </head>
 <body>
 <form action=""  method="post" >
-	
-	{% csrf_token %}
 
+	{% csrf_token %}
 <tr>
-  <th><label for="id_i_details">Share Your Experience</label></th>
+  <th><label for="id_details">Share Your Experience</label></th><br /><br />
+  <th><label for="id_title">Title:</label></th>
   <td>
-    <textarea class="tinymce" cols="40" data-mce-conf="{&quot;relative_urls&quot;: false, &quot;spellchecker_languages&quot;: &quot;Afrikaans=af,Arabic=ar,Asturian=as,Azerbaijani=az,Bulgarian=bg,Belarusian=be,Bengali=bn,Breton=br,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English / Australian English / British English=en,Esperanto=eo,Spanish / Argentinian Spanish / Colombian Spanish / Mexican Spanish / Nicaraguan Spanish / Venezuelan Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Scottish Gaelic=gd,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Interlingua=ia,Indonesian=id,Ido=io,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Kazakh=kk,Khmer=km,Kannada=kn,Korean=ko,Luxembourgish=lb,Lithuanian=lt,Latvian=lv,Macedonian=mk,Malayalam=ml,Mongolian=mn,Marathi=mr,Burmese=my,Norwegian Bokmal=nb,Nepali=ne,Dutch=nl,Norwegian Nynorsk=nn,Ossetic=os,Punjabi=pa,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Swahili=sw,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Tatar=tt,Udmurt=ud,Ukrainian=uk,Urdu=ur,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh&quot;, &quot;theme&quot;: &quot;simple&quot;, &quot;strict_loading_mode&quot;: 1, &quot;mode&quot;: &quot;exact&quot;, &quot;language&quot;: &quot;en&quot;, &quot;elements&quot;: &quot;id_i_details&quot;, &quot;directionality&quot;: &quot;ltr&quot;}" id="id_i_details" name="i_details" rows="10">
-      
+    <input id="id_title" maxlength="250" name="title" type="text" />
+  </td>
+</tr>
+<br /><br />
+<tr>
+
+  <td>
+    <textarea class="tinymce" cols="40" data-mce-conf="{&quot;relative_urls&quot;: false, &quot;spellchecker_languages&quot;: &quot;Afrikaans=af,Arabic=ar,Asturian=as,Azerbaijani=az,Bulgarian=bg,Belarusian=be,Bengali=bn,Breton=br,Bosnian=bs,Catalan=ca,Czech=cs,Welsh=cy,Danish=da,German=de,Greek=el,+English / Australian English / British English=en,Esperanto=eo,Spanish / Argentinian Spanish / Colombian Spanish / Mexican Spanish / Nicaraguan Spanish / Venezuelan Spanish=es,Estonian=et,Basque=eu,Persian=fa,Finnish=fi,French=fr,Frisian=fy,Irish=ga,Scottish Gaelic=gd,Galician=gl,Hebrew=he,Hindi=hi,Croatian=hr,Hungarian=hu,Interlingua=ia,Indonesian=id,Ido=io,Icelandic=is,Italian=it,Japanese=ja,Georgian=ka,Kazakh=kk,Khmer=km,Kannada=kn,Korean=ko,Luxembourgish=lb,Lithuanian=lt,Latvian=lv,Macedonian=mk,Malayalam=ml,Mongolian=mn,Marathi=mr,Burmese=my,Norwegian Bokmal=nb,Nepali=ne,Dutch=nl,Norwegian Nynorsk=nn,Ossetic=os,Punjabi=pa,Polish=pl,Portuguese / Brazilian Portuguese=pt,Romanian=ro,Russian=ru,Slovak=sk,Slovenian=sl,Albanian=sq,Serbian / Serbian Latin=sr,Swedish=sv,Swahili=sw,Tamil=ta,Telugu=te,Thai=th,Turkish=tr,Tatar=tt,Udmurt=ud,Ukrainian=uk,Urdu=ur,Vietnamese=vi,Simplified Chinese / Traditional Chinese=zh&quot;, &quot;theme&quot;: &quot;simple&quot;, &quot;strict_loading_mode&quot;: 1, &quot;mode&quot;: &quot;exact&quot;, &quot;language&quot;: &quot;en&quot;, &quot;elements&quot;: &quot;id_details&quot;, &quot;directionality&quot;: &quot;ltr&quot;}" id="id_details" name="details" rows="10">
+
   <p style="text-align: center; font-size: 15px;"><img title="TinyMCE Logo" src="//www.tinymce.com/images/glyph-tinymce@2x.png" alt="TinyMCE Logo" width="110" height="97" />
   </p>
   <h1 style="text-align: center;">Welcome to the TinyMCE & Community Plugins demo!</h1>
@@ -60,7 +67,7 @@
 
   <h2>Finally ...</h2>
   <p>Don't forget to check out our other product <a href="http://www.plupload.com" target="_blank">Plupload</a>, your ultimate upload solution featuring HTML5 upload support.</p>
-  <p>Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.</p>  
+  <p>Thanks for supporting TinyMCE! We hope it helps you and your users create great content.<br>All the best from the TinyMCE team.</p>
 
 
 
@@ -71,5 +78,6 @@
 
 	<input type="submit" value="Submit" />
 </form>
+
 </body>
 </html>

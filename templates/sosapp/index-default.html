@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>khushbu-Fragrance of Indian Women | Non-Profit, Charity and Fundraising</title>
+	<title>SOS-Fragrance of Indian Women | Non-Profit, Charity and Fundraising</title>
 	<meta name="description" content="Solidarity of Systers is a Non-Profit, Charity Fundraising Organisation">
     <meta name="author" content="CodePassenger">
 
@@ -92,7 +92,7 @@
 						                  <span class="icon-bar"></span>
 						                </button>
 					       				<div class="logo">
-					       					<h1><a href="#">Khushbu</a></h1>
+					       					<h1><a href="#">SOS</a></h1>
 					       				</div>
 					       				<!-- /.logo end -->
 						              </div>
@@ -208,7 +208,7 @@
 				   				<h4>EDUCATION</h4>
 				   				<p>Education helps women to make them empower in our society.</p>
 				   				<div class="caption-btn green">
-				   					<a href="blog-single.html" class="btn default-btn light-yellow">learn more</a>
+				   					<a href="{% url 'sos:education' %}" class="btn default-btn light-yellow">learn more</a>
 				   				</div>
 				   				<!-- /.caption-btn end -->
 			   			    </div>
@@ -220,7 +220,7 @@
 				   				<h4>Domestic Violence</h4>
 				   				<p>Well Health helps women to improve their life and education.</p>
 				   				<div class="caption-btn blue">
-				   					<a href="blog-single.html" class="btn default-btn light-yellow">learn more</a>
+				   					<a href="{% url 'sos:education' %}" class="btn default-btn light-yellow">learn more</a>
 				   				</div>
 				   				<!-- /.caption-btn end -->
 			   			    </div>
@@ -234,7 +234,7 @@
 				   				<h4>WOMEN MOVEMENT</h4>
 				   				<p>Movement is necessary to protect women rights from patriarchal system.</p>
 				   				<div class="caption-btn pink">
-				   					<a href="blog-single.html" class="btn default-btn light-yellow">learn more</a>
+				   					<a href="{% url 'sos:education' %}" class="btn default-btn light-yellow">learn more</a>
 				   				</div>
 				   				<!-- /.caption-btn end -->
 			   			    </div>
@@ -272,18 +272,22 @@
 						  	<button data-href="./report-once.html" data-task='report' class="navigate-me the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
 						  -->
-						  	<button href="{% url 'sos:report_once' %}" data-task="report" class="open-editor the-white-circle fa fa-4 fa-pencil"></button>
+						  <a href="{% url 'sos:report_once' %}">
+						  	<button class="the-white-circle fa fa-4 fa-pencil"></button>
 						  	<p class="the-bottom-text">Report Once</p>
-
+						</a>
+						<a href="{% url 'sos:rep_stories' %}">View All</a>
 						  </div>
 						  <div class="horizon-item  col-xs-8 col-sm-6 col-lg-4 col-centered">
 						  <!--
 						  	<button data-href="./experience-share.html" data-task='experience' class="navigate-me the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
 						  	-->
-						  	<button href="{% url 'sos:i_experienced' %}" data-task="experience" class="open-editor the-white-circle fa fa-4 fa-quote-left "></button>
+							<a href="{% url 'sos:i_experienced' %}">
+						  	<button  class="the-white-circle fa fa-4 fa-quote-left "></button>
 						  	<p class="the-bottom-text">I Experienced</p>
-
+						</a>
+						<a href="{% url 'sos:exp_stories' %}">View All</a>
 						  </div>
 						  {% else %}
 						  <p>Please Login For More Options!</p>
@@ -1054,7 +1058,7 @@
        <!-- /.container -->
    </section>
    <!-- contact end -->
-{% if not request.user.is_authenticated %}
+   {% if not request.user.is_authenticated %}
    <!-- map start -->
    <div id="map" class="map">
 
@@ -1113,7 +1117,7 @@
 	   	</div>
    </div>
    <!-- contact-form end -->
-{% endif %}
+   {% endif %}
    <!-- footer start -->
    <footer>
    	    <div class="container">

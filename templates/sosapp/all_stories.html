@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load sos_tags %}
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+{% for item in stories %}
+	TITLE:-
+	<a href="{% url 'sos:story' id=item.id %}">{{ item.title }}</a><br /><br />
+	BODY:-
+	{{ item.details| markdown | truncatewords_html:30 }}
+	<hr />
+	<a href="{% url 'sos:story' id=item.id %}">Read Full</a>
+	<hr />
+{% endfor %}
+
+
+</body>
+</html>

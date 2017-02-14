@@ -13,12 +13,12 @@ class NonUserContactForm(forms.ModelForm):
 class ReportOnceForm(forms.ModelForm):
 	class Meta:
 		model = ReportOnceModel
-		fields = ['r_details']
+		fields = ['title', 'details']
 
 class IExperienceForm(forms.ModelForm):
 	class Meta:
 		model = IExperienceModel
-		fields = ['i_details']
+		fields = ['title', 'details']
 
 
 # Edit Profile Forms (5)
